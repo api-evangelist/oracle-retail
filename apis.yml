@@ -1,0 +1,19 @@
+aid: oracle-retail
+url: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/apis.yml
+apis:
+- aid: oracle-retail:oracle-retail-api
+  name: Oracle Retail Platform API
+  tags:
+  - Retail
+  - Merchandising
+  - Pricing
+  - Inventory
+  - SOAP
+  image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
+  humanURL: https://docs.oracle.com/en/industries/retail/
+  baseURL: https://api.oracle-retail.example.com
+  properties:
+  - url: https://docs.oracle.com/en/industries/retail/
+    type: Documentation
+  description: >-
+    Oracle Retail provides merchandising, pricing, and inventory management APIs for retail enterprises. REST and SOAP APIs enable product catalog management, price optimization, allocation planning, and demand forecasting across omnichannel retail operations.
