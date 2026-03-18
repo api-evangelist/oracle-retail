@@ -1,19 +1,108 @@
 aid: oracle-retail
 url: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/apis.yml
 apis:
-- aid: oracle-retail:oracle-retail-api
-  name: Oracle Retail Platform API
+- aid: oracle-retail:oracle-retail-merchandising-api
+  name: Oracle Retail Merchandising Foundation Cloud Service API
   tags:
   - Retail
   - Merchandising
-  - Pricing
   - Inventory
-  - SOAP
+  - REST
   image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
-  humanURL: https://docs.oracle.com/en/industries/retail/
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://api.oracle-retail.example.com
   properties:
-  - url: https://docs.oracle.com/en/industries/retail/
+  - url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    type: Documentation
+  - url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    type: Reference
+  description: >-
+    Oracle Retail Merchandising Foundation Cloud Service provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, and inventory transactions across omnichannel retail operations.
+
+- aid: oracle-retail:oracle-retail-pricing-api
+  name: Oracle Retail Pricing Cloud Service API
+  tags:
+  - Retail
+  - Pricing
+  - Promotions
+  - REST
+  image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/
+  baseURL: https://api.oracle-retail.example.com
+  properties:
+  - url: https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/
     type: Documentation
   description: >-
-    Oracle Retail provides merchandising, pricing, and inventory management APIs for retail enterprises. REST and SOAP APIs enable product catalog management, price optimization, allocation planning, and demand forecasting across omnichannel retail operations.
+    Oracle Retail Pricing Cloud Service provides REST APIs for regular price management, promotional pricing, competitive pricing, and clearance pricing across retail operations.
+
+- aid: oracle-retail:oracle-retail-integration-api
+  name: Oracle Retail Integration Cloud Service API
+  tags:
+  - Retail
+  - Integration
+  - Middleware
+  - REST
+  image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/
+  baseURL: https://api.oracle-retail.example.com
+  properties:
+  - url: https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/
+    type: Documentation
+  description: >-
+    Oracle Retail Integration Cloud Service (RIB and BDI) provides messaging and bulk data integration APIs connecting Oracle Retail applications to third-party systems using enterprise messaging patterns.
+
+- aid: oracle-retail:oracle-retail-order-management-api
+  name: Oracle Retail Order Management Suite Cloud Service API
+  tags:
+  - Retail
+  - Order Management
+  - Omnichannel
+  - REST
+  image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
+  baseURL: https://api.oracle-retail.example.com
+  properties:
+  - url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
+    type: Documentation
+  description: >-
+    Oracle Retail Order Management Suite Cloud Service provides REST APIs for omnichannel order orchestration, fulfillment, sourcing, and customer service across digital and physical retail channels.
+
+- aid: oracle-retail:oracle-retail-xstore-api
+  name: Oracle Retail Xstore Point of Service API
+  tags:
+  - Retail
+  - Point of Sale
+  - Store Operations
+  - REST
+  image: https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/image.png
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
+  baseURL: https://api.oracle-retail.example.com
+  properties:
+  - url: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
+    type: Documentation
+  description: >-
+    Oracle Retail Xstore Point of Service provides APIs for store operations including transactions, inventory lookup, customer management, and omnichannel fulfillment from retail store systems.
+
+common:
+- url: https://docs.oracle.com/en/industries/retail/
+  type: Portal
+- url: https://docs.oracle.com/en/industries/retail/
+  type: Documentation
+- url: https://www.oracle.com/retail/
+  type: Website
+- url: https://community.oracle.com/gbu/rgbu/
+  type: Support
+- url: https://blogs.oracle.com/retail/
+  type: Blog
+- url: https://www.oracle.com/legal/privacy/privacy-policy/
+  type: PrivacyPolicy
+- url: https://www.oracle.com/legal/terms/
+  type: TermsOfService
+- url: https://github.com/oracle
+  type: GitHubOrganization
+- url: https://www.oracle.com/developer/
+  type: DeveloperPortal
+maintainers:
+- name: Kin Lane
+  email: kin@apievangelist.com
+modified: '2026-03-18'
