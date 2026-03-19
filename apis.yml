@@ -16,6 +16,8 @@ apis:
     type: Documentation
   - url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
     type: Reference
+  - url: openapi/oracle-retail-merchandising-openapi.yml
+    type: OpenAPI
   description: >-
     Oracle Retail Merchandising Foundation Cloud Service provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, and inventory transactions across omnichannel retail operations.
 
@@ -64,6 +66,8 @@ apis:
   properties:
   - url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
     type: Documentation
+  - url: openapi/oracle-retail-order-management-openapi.yml
+    type: OpenAPI
   description: >-
     Oracle Retail Order Management Suite Cloud Service provides REST APIs for omnichannel order orchestration, fulfillment, sourcing, and customer service across digital and physical retail channels.
 
@@ -102,6 +106,16 @@ common:
   type: GitHubOrganization
 - url: https://www.oracle.com/developer/
   type: DeveloperPortal
+- url: openapi/oracle-retail-merchandising-openapi.yml
+  type: OpenAPI
+- url: openapi/oracle-retail-order-management-openapi.yml
+  type: OpenAPI
+- url: json-schema/oracle-retail-item-schema.json
+  type: JSONSchema
+- url: json-schema/oracle-retail-order-schema.json
+  type: JSONSchema
+- url: json-ld/oracle-retail-context.jsonld
+  type: JSONLDContext
 maintainers:
 - name: Kin Lane
   email: kin@apievangelist.com

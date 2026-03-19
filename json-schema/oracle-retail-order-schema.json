@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/oracle-retail/json-schema/oracle-retail-order-schema.json",
+  "title": "Oracle Retail Order",
+  "description": "Schema for an Oracle Retail OMS customer order across omnichannel fulfillment.",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "description": "System-generated order identifier"
+    },
+    "externalOrderId": {
+      "type": "string",
+      "description": "Order ID from originating channel system"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["CREATED", "PAYMENT_PENDING", "CONFIRMED", "PROCESSING", "SHIPPED", "DELIVERED", "CANCELLED", "RETURNED"],
+      "description": "Current order status"
+    },
+    "channelId": {
+      "type": "string",
+      "description": "Sales channel identifier (e.g., WEB, STORE, MOBILE)"
+    },
+    "customerId": {
+      "type": "string",
+      "description": "Customer identifier"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the order was placed"
+    },
+    "currencyCode": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "description": "ISO 4217 currency code"
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Order subtotal before tax and shipping"
+    },
+    "taxTotal": {
+      "type": "number",
+      "description": "Total tax amount"
+    },
+    "shippingTotal": {
+      "type": "number",
+      "description": "Total shipping and handling"
+    },
+    "discountTotal": {
+      "type": "number",
+      "description": "Total discount amount"
+    },
+    "orderTotal": {
+      "type": "number",
+      "description": "Grand total (subtotal + tax + shipping - discounts)"
+    },
+    "shippingAddress": {
+      "$ref": "#/$defs/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/$defs/Address"
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OrderLine"
+      }
+    },
+    "createDatetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdateDatetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["orderId", "status", "channelId", "customerId", "orderDate"],
+  "$defs": {
+    "Address": {
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "address1": { "type": "string" },
+        "address2": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "country": { "type": "string", "maxLength": 3 },
+        "phone": { "type": "string" },
+        "email": { "type": "string", "format": "email" }
+      },
+      "required": ["address1", "city", "country"]
+    },
+    "OrderLine": {
+      "type": "object",
+      "properties": {
+        "lineId": { "type": "string" },
+        "itemId": { "type": "string" },
+        "itemDescription": { "type": "string" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "unitPrice": { "type": "number" },
+        "lineTotal": { "type": "number" },
+        "status": { "type": "string" },
+        "fulfillmentType": {
+          "type": "string",
+          "enum": ["SHIP_TO_HOME", "SHIP_TO_STORE", "PICKUP_IN_STORE", "DELIVERY"]
+        }
+      },
+      "required": ["lineId", "itemId", "quantity", "unitPrice"]
+    }
+  },
+  "examples": [
+    {
+      "orderId": "ORD-2026-00123456",
+      "externalOrderId": "WEB-20260315-9872",
+      "status": "CONFIRMED",
+      "channelId": "WEB",
+      "customerId": "CUST-10045",
+      "orderDate": "2026-03-15T14:23:00Z",
+      "currencyCode": "USD",
+      "subtotal": 74.97,
+      "taxTotal": 6.00,
+      "shippingTotal": 5.99,
+      "discountTotal": 0.00,
+      "orderTotal": 86.96
+    }
+  ]
+}

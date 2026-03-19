@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/oracle-retail/json-schema/oracle-retail-item-schema.json",
+  "title": "Oracle Retail Item",
+  "description": "Schema for an Oracle Retail Merchandising Foundation item record representing a sellable product.",
+  "type": "object",
+  "properties": {
+    "item": {
+      "type": "string",
+      "maxLength": 25,
+      "description": "Item number (primary key)"
+    },
+    "itemDesc": {
+      "type": "string",
+      "maxLength": 250,
+      "description": "Primary item description"
+    },
+    "itemDescSecond": {
+      "type": "string",
+      "maxLength": 250,
+      "description": "Secondary item description"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["A", "C", "D"],
+      "description": "A=Active, C=Discontinued, D=Deleted"
+    },
+    "dept": {
+      "type": "integer",
+      "description": "Department number"
+    },
+    "class": {
+      "type": "integer",
+      "description": "Class number within department"
+    },
+    "subclass": {
+      "type": "integer",
+      "description": "Subclass number within class"
+    },
+    "itemType": {
+      "type": "string",
+      "enum": ["REG", "CON", "TFM", "RB", "SB", "T"],
+      "description": "Item type: REG=Regular, CON=Consignment, TFM=Transform, RB=Reference by barcode, SB=Simple pack, T=Template"
+    },
+    "sellable": {
+      "type": "string",
+      "enum": ["Y", "N"],
+      "description": "Can this item be sold?"
+    },
+    "orderable": {
+      "type": "string",
+      "enum": ["Y", "N"],
+      "description": "Can this item be ordered from suppliers?"
+    },
+    "inventoryInd": {
+      "type": "string",
+      "enum": ["Y", "N"],
+      "description": "Is inventory tracked for this item?"
+    },
+    "unitRetail": {
+      "type": "number",
+      "description": "Current unit retail price"
+    },
+    "currencyCode": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "description": "ISO 4217 currency code"
+    },
+    "supplier": {
+      "type": "integer",
+      "description": "Primary supplier number"
+    },
+    "originCountry": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "ISO country code for country of origin"
+    },
+    "unitCost": {
+      "type": "number",
+      "description": "Standard unit cost"
+    },
+    "packType": {
+      "type": "string",
+      "enum": ["B", "V"],
+      "description": "B=Buyer pack, V=Vendor pack"
+    },
+    "createDatetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date item was created"
+    },
+    "lastUpdateDatetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date item was last updated"
+    }
+  },
+  "required": ["item", "itemDesc", "dept", "class", "subclass", "status"],
+  "examples": [
+    {
+      "item": "100012345",
+      "itemDesc": "Men's Cotton T-Shirt Blue Large",
+      "status": "A",
+      "dept": 100,
+      "class": 10,
+      "subclass": 5,
+      "itemType": "REG",
+      "sellable": "Y",
+      "orderable": "Y",
+      "inventoryInd": "Y",
+      "unitRetail": 24.99,
+      "currencyCode": "USD",
+      "supplier": 5001,
+      "originCountry": "BGD"
+    }
+  ]
+}

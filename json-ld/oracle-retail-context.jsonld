@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "retail": "https://docs.oracle.com/en/industries/retail/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gr": "http://purl.org/goodrelations/v1#",
+
+    "Item": {
+      "@id": "schema:Product",
+      "@type": "@id"
+    },
+    "item": {
+      "@id": "schema:productID"
+    },
+    "itemDesc": {
+      "@id": "schema:name"
+    },
+    "itemDescSecond": {
+      "@id": "schema:description"
+    },
+    "status": {
+      "@id": "schema:itemCondition"
+    },
+    "dept": {
+      "@id": "retail:department",
+      "@type": "xsd:integer"
+    },
+    "class": {
+      "@id": "retail:class",
+      "@type": "xsd:integer"
+    },
+    "subclass": {
+      "@id": "retail:subclass",
+      "@type": "xsd:integer"
+    },
+    "unitRetail": {
+      "@id": "gr:hasPriceSpecification",
+      "@type": "xsd:decimal"
+    },
+    "currencyCode": {
+      "@id": "schema:priceCurrency"
+    },
+    "unitCost": {
+      "@id": "retail:unitCost",
+      "@type": "xsd:decimal"
+    },
+    "supplier": {
+      "@id": "schema:supplier"
+    },
+    "originCountry": {
+      "@id": "schema:countryOfOrigin"
+    },
+
+    "PurchaseOrder": {
+      "@id": "schema:Order",
+      "@type": "@id"
+    },
+    "orderId": {
+      "@id": "schema:orderNumber"
+    },
+    "orderDate": {
+      "@id": "schema:orderDate",
+      "@type": "xsd:dateTime"
+    },
+    "orderTotal": {
+      "@id": "schema:price",
+      "@type": "xsd:decimal"
+    },
+
+    "Supplier": {
+      "@id": "schema:Organization",
+      "@type": "@id"
+    },
+    "supplierName": {
+      "@id": "schema:name"
+    },
+    "primaryContactName": {
+      "@id": "schema:contactPoint"
+    },
+    "primaryEmail": {
+      "@id": "schema:email"
+    },
+    "primaryPhone": {
+      "@id": "schema:telephone"
+    },
+
+    "Order": {
+      "@id": "schema:Order",
+      "@type": "@id"
+    },
+    "channelId": {
+      "@id": "retail:salesChannel"
+    },
+    "customerId": {
+      "@id": "schema:customer"
+    },
+    "shippingAddress": {
+      "@id": "schema:deliveryAddress"
+    },
+    "billingAddress": {
+      "@id": "schema:billingAddress"
+    },
+
+    "InventoryPosition": {
+      "@id": "schema:ItemAvailability",
+      "@type": "@id"
+    },
+    "stockOnHand": {
+      "@id": "retail:stockOnHand",
+      "@type": "xsd:decimal"
+    },
+    "availableToSell": {
+      "@id": "retail:availableToSell",
+      "@type": "xsd:decimal"
+    }
+  }
+}

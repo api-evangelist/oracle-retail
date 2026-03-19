@@ -1,0 +1,694 @@
+openapi: 3.1.0
+info:
+  title: Oracle Retail Merchandising Foundation Cloud Service API
+  description: >-
+    Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs
+    for managing merchandise hierarchies, item setup, purchase orders, cost management,
+    supplier management, and inventory transactions across omnichannel retail operations.
+  version: 26.1.0
+  contact:
+    name: Oracle Retail Support
+    url: https://support.oracle.com
+  license:
+    name: Oracle Technology Network License
+    url: https://www.oracle.com/legal/terms/
+servers:
+  - url: https://{host}/MerchServices/MerchRes/v1
+    description: Oracle Retail Merchandising REST API
+    variables:
+      host:
+        default: retail.example.com
+        description: RMFCS hostname
+
+security:
+  - oauth2: []
+
+tags:
+  - name: Items
+    description: Item setup and attributes
+  - name: PurchaseOrders
+    description: Purchase order management
+  - name: Suppliers
+    description: Supplier management
+  - name: MerchHierarchy
+    description: Merchandise hierarchy (dept/class/subclass)
+  - name: Inventory
+    description: Inventory and stock on hand
+  - name: Pricing
+    description: Regular price management
+
+paths:
+  /items:
+    get:
+      operationId: listItems
+      summary: List items
+      description: Returns a paginated list of merchandise items with optional filters.
+      tags:
+        - Items
+      parameters:
+        - name: department
+          in: query
+          description: Filter by department number
+          schema:
+            type: integer
+        - name: class
+          in: query
+          description: Filter by class number
+          schema:
+            type: integer
+        - name: subclass
+          in: query
+          description: Filter by subclass number
+          schema:
+            type: integer
+        - name: status
+          in: query
+          description: Filter by item status
+          schema:
+            type: string
+            enum: [A, C, D]
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+            maximum: 500
+      responses:
+        '200':
+          description: Item list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+                  totalCount:
+                    type: integer
+                  offset:
+                    type: integer
+                  limit:
+                    type: integer
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createItem
+      summary: Create an item
+      description: Creates a new merchandise item record.
+      tags:
+        - Items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreate'
+      responses:
+        '201':
+          description: Item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /items/{item}:
+    get:
+      operationId: getItem
+      summary: Get an item
+      description: Returns item details including description, supplier, and hierarchy.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/ItemParam'
+      responses:
+        '200':
+          description: Item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateItem
+      summary: Update an item
+      description: Updates item attributes such as description, status, or hierarchy assignment.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/ItemParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemUpdate'
+      responses:
+        '200':
+          description: Item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /purchaseorders:
+    get:
+      operationId: listPurchaseOrders
+      summary: List purchase orders
+      description: Returns purchase orders with status and shipment information.
+      tags:
+        - PurchaseOrders
+      parameters:
+        - name: status
+          in: query
+          description: Filter by order status
+          schema:
+            type: string
+            enum: [W, A, C, T, D]
+        - name: supplier
+          in: query
+          description: Filter by supplier number
+          schema:
+            type: integer
+        - name: fromDate
+          in: query
+          description: Filter orders not before this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: toDate
+          in: query
+          description: Filter orders not after this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Purchase order list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  purchaseOrders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PurchaseOrder'
+                  totalCount:
+                    type: integer
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createPurchaseOrder
+      summary: Create a purchase order
+      description: Creates a new purchase order for a supplier.
+      tags:
+        - PurchaseOrders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderCreate'
+      responses:
+        '201':
+          description: Purchase order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseOrder'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /purchaseorders/{orderId}:
+    get:
+      operationId: getPurchaseOrder
+      summary: Get a purchase order
+      description: Returns purchase order header and detail lines.
+      tags:
+        - PurchaseOrders
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Purchase order details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseOrderDetail'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /suppliers:
+    get:
+      operationId: listSuppliers
+      summary: List suppliers
+      description: Returns supplier master data including contact and payment terms.
+      tags:
+        - Suppliers
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [A, I]
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Supplier list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  suppliers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Supplier'
+                  totalCount:
+                    type: integer
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /inventory:
+    get:
+      operationId: getInventory
+      summary: Query inventory positions
+      description: Returns stock on hand, on order, and available to sell by item and location.
+      tags:
+        - Inventory
+      parameters:
+        - name: item
+          in: query
+          required: true
+          description: Item number
+          schema:
+            type: string
+        - name: location
+          in: query
+          description: Store or warehouse number
+          schema:
+            type: integer
+        - name: locationType
+          in: query
+          description: Location type (S=Store, W=Warehouse)
+          schema:
+            type: string
+            enum: [S, W]
+      responses:
+        '200':
+          description: Inventory position
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inventoryPositions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryPosition'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+          scopes:
+            retail.read: Read retail data
+            retail.write: Write retail data
+
+  parameters:
+    ItemParam:
+      name: item
+      in: path
+      required: true
+      description: Item number (up to 25 chars)
+      schema:
+        type: string
+        maxLength: 25
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Item:
+      type: object
+      description: A retail merchandise item
+      properties:
+        item:
+          type: string
+          maxLength: 25
+          description: Item number
+        itemDesc:
+          type: string
+          maxLength: 250
+          description: Item description
+        itemDescSecond:
+          type: string
+          maxLength: 250
+          description: Secondary item description
+        status:
+          type: string
+          enum: [A, C, D]
+          description: "A=Active, C=Discontinued, D=Deleted"
+        dept:
+          type: integer
+          description: Department number
+        class:
+          type: integer
+          description: Class number
+        subclass:
+          type: integer
+          description: Subclass number
+        itemType:
+          type: string
+          enum: [REG, CON, TFM, RB, SB, T]
+          description: "REG=Regular, CON=Consignment, TFM=Transform"
+        sellable:
+          type: string
+          enum: [Y, N]
+        orderable:
+          type: string
+          enum: [Y, N]
+        inventoryInd:
+          type: string
+          enum: [Y, N]
+        retailLabel:
+          type: string
+        unitRetail:
+          type: number
+          format: double
+          description: Current retail price
+        currencyCode:
+          type: string
+          maxLength: 3
+        supplier:
+          type: integer
+          description: Primary supplier number
+        originCountry:
+          type: string
+          maxLength: 3
+        unitCost:
+          type: number
+          format: double
+        createDatetime:
+          type: string
+          format: date-time
+        lastUpdateDatetime:
+          type: string
+          format: date-time
+
+    ItemCreate:
+      type: object
+      required:
+        - item
+        - itemDesc
+        - dept
+        - class
+        - subclass
+      properties:
+        item:
+          type: string
+          maxLength: 25
+        itemDesc:
+          type: string
+          maxLength: 250
+        dept:
+          type: integer
+        class:
+          type: integer
+        subclass:
+          type: integer
+        itemType:
+          type: string
+          enum: [REG, CON, TFM, RB, SB, T]
+          default: REG
+        unitRetail:
+          type: number
+          format: double
+        currencyCode:
+          type: string
+          maxLength: 3
+
+    ItemUpdate:
+      type: object
+      properties:
+        itemDesc:
+          type: string
+          maxLength: 250
+        status:
+          type: string
+          enum: [A, C, D]
+        unitRetail:
+          type: number
+          format: double
+
+    PurchaseOrder:
+      type: object
+      description: A purchase order header
+      properties:
+        orderId:
+          type: integer
+          description: Order number
+        supplier:
+          type: integer
+          description: Supplier number
+        status:
+          type: string
+          enum: [W, A, C, T, D]
+          description: "W=Worksheet, A=Approved, C=Closed, T=Terminated, D=Deleted"
+        orderDate:
+          type: string
+          format: date
+        notBeforeDate:
+          type: string
+          format: date
+        notAfterDate:
+          type: string
+          format: date
+        freightTerms:
+          type: string
+        paymentTerms:
+          type: string
+        currencyCode:
+          type: string
+          maxLength: 3
+        totalCost:
+          type: number
+          format: double
+        totalRetail:
+          type: number
+          format: double
+        createDatetime:
+          type: string
+          format: date-time
+        lastUpdateDatetime:
+          type: string
+          format: date-time
+
+    PurchaseOrderCreate:
+      type: object
+      required:
+        - supplier
+        - orderDate
+        - currencyCode
+      properties:
+        supplier:
+          type: integer
+        orderDate:
+          type: string
+          format: date
+        notBeforeDate:
+          type: string
+          format: date
+        notAfterDate:
+          type: string
+          format: date
+        currencyCode:
+          type: string
+          maxLength: 3
+        freightTerms:
+          type: string
+        paymentTerms:
+          type: string
+
+    PurchaseOrderDetail:
+      allOf:
+        - $ref: '#/components/schemas/PurchaseOrder'
+        - type: object
+          properties:
+            lines:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderLine'
+
+    PurchaseOrderLine:
+      type: object
+      properties:
+        seqNo:
+          type: integer
+        item:
+          type: string
+        location:
+          type: integer
+        locationType:
+          type: string
+          enum: [S, W]
+        unitCost:
+          type: number
+          format: double
+        unitRetail:
+          type: number
+          format: double
+        qtyOrdered:
+          type: number
+          format: double
+        qtyReceived:
+          type: number
+          format: double
+        shipDate:
+          type: string
+          format: date
+        cancelAfterDate:
+          type: string
+          format: date
+
+    Supplier:
+      type: object
+      description: A merchandise supplier
+      properties:
+        supplier:
+          type: integer
+          description: Supplier number
+        supplierName:
+          type: string
+          description: Supplier name
+        status:
+          type: string
+          enum: [A, I]
+          description: "A=Active, I=Inactive"
+        primaryContactName:
+          type: string
+        primaryPhone:
+          type: string
+        primaryEmail:
+          type: string
+          format: email
+        remitAddress:
+          type: string
+        remitCity:
+          type: string
+        remitState:
+          type: string
+        remitCountry:
+          type: string
+          maxLength: 3
+        remitZip:
+          type: string
+        currencyCode:
+          type: string
+          maxLength: 3
+        paymentTerms:
+          type: string
+        freightTerms:
+          type: string
+        createDatetime:
+          type: string
+          format: date-time
+
+    InventoryPosition:
+      type: object
+      description: Inventory quantity position at a location
+      properties:
+        item:
+          type: string
+        location:
+          type: integer
+        locationType:
+          type: string
+          enum: [S, W]
+        stockOnHand:
+          type: number
+          format: double
+        stockOnOrder:
+          type: number
+          format: double
+        stockInTransit:
+          type: number
+          format: double
+        availableToSell:
+          type: number
+          format: double
+        nonSellable:
+          type: number
+          format: double
+        lastUpdateDatetime:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
