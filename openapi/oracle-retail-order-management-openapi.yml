@@ -23,17 +23,12 @@ security:
   - oauth2: []
 
 tags:
-  - name: Orders
-    description: Customer order management
   - name: Fulfillment
     description: Fulfillment and sourcing operations
+  - name: Orders
+    description: Customer order management
   - name: Returns
     description: Returns and refunds management
-  - name: Customers
-    description: Customer profile management
-  - name: Products
-    description: Product catalog for OMS
-
 paths:
   /orders:
     get:

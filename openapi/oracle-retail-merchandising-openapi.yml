@@ -24,19 +24,14 @@ security:
   - oauth2: []
 
 tags:
+  - name: Inventory
+    description: Inventory and stock on hand
   - name: Items
     description: Item setup and attributes
   - name: PurchaseOrders
     description: Purchase order management
   - name: Suppliers
     description: Supplier management
-  - name: MerchHierarchy
-    description: Merchandise hierarchy (dept/class/subclass)
-  - name: Inventory
-    description: Inventory and stock on hand
-  - name: Pricing
-    description: Regular price management
-
 paths:
   /items:
     get:
