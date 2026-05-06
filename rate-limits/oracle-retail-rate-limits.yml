@@ -4,109 +4,77 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Oracle Retail
 providerId: oracle-retail
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Retail
-  - Merchandising
-  - Order Management
-  - Pricing
-  - Inventory
-  - Point of Sale
-  - Omnichannel
-  - Oracle
+  - Oracle Cloud
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Oracle Retail API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Omnichannel
+description: >-
+  Oracle Retail Cloud Services REST APIs (Merchandising, Pricing, Integration,
+  Order Management) do not publish per-second or per-minute rate-limit numbers.
+  Throughput is governed by the underlying Retail Cloud pod capacity and by
+  the Retail Integration Cloud Service (RICS) job-throttling configuration
+  for bulk merchandise, inventory, and order events. Customers experiencing
+  throttling are directed to Oracle Retail Support to raise capacity via a
+  service request.
+sources:
+  - https://docs.oracle.com/en/industries/retail/
+  - https://docs.oracle.com/cd/F30053_01/
+notes: >-
+  No public per-tier RPS/RPM numbers are published. Set reconciled to true
+  after capturing tenancy-specific values from an Oracle Retail Support
+  service request response.
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
+  unauthorized: 401
+  forbidden: 403
+  notFound: 404
+  serverError: 500
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Oracle Retail Merchandising Foundation Cloud Service API
-      - Oracle Retail Pricing Cloud Service API
-      - Oracle Retail Integration Cloud Service API
-      - Oracle Retail Order Management Suite Cloud Service API
-      - Oracle Retail Xstore Point of Service API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Oracle Retail Merchandising Foundation Cloud Service API
-      - Oracle Retail Pricing Cloud Service API
-      - Oracle Retail Integration Cloud Service API
-      - Oracle Retail Order Management Suite Cloud Service API
-      - Oracle Retail Xstore Point of Service API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Oracle Retail Merchandising Foundation Cloud Service API
-      - Oracle Retail Pricing Cloud Service API
-      - Oracle Retail Integration Cloud Service API
-      - Oracle Retail Order Management Suite Cloud Service API
-      - Oracle Retail Xstore Point of Service API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Oracle Retail Merchandising Foundation Cloud Service API
-      - Oracle Retail Pricing Cloud Service API
-      - Oracle Retail Integration Cloud Service API
-      - Oracle Retail Order Management Suite Cloud Service API
-      - Oracle Retail Xstore Point of Service API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Oracle Retail Merchandising Foundation Cloud Service API
-      - Oracle Retail Pricing Cloud Service API
-      - Oracle Retail Integration Cloud Service API
-      - Oracle Retail Order Management Suite Cloud Service API
-      - Oracle Retail Xstore Point of Service API
+  - name: REST API Throughput
+    scope: tenancy
+    metric: varies
+    limit: bound by Oracle Retail Cloud pod capacity
+    notes: >-
+      Throughput is governed by the underlying Retail Cloud pod and may be
+      raised via an Oracle Retail Support service request.
+  - name: RICS Bulk Job Concurrency
+    scope: tenancy
+    metric: concurrent_jobs
+    limit: see RICS administration guide
+    notes: >-
+      Concurrent bulk synchronization jobs are configured per Retail
+      Integration Cloud Service deployment.
+  - name: Xstore POS Offline Mode
+    scope: lane
+    metric: varies
+    limit: lane-local capacity
+    notes: >-
+      Xstore Point of Service operates store-local and continues offline; in
+      that mode rate limits are bounded by the lane's local hardware rather
+      than by a centrally-published rate.
 policies:
+  - name: Capacity-Bound Throttling
+    description: >-
+      Throughput limits are determined by the Retail Cloud pod and RICS
+      job-throttling settings rather than a published per-tenancy
+      rate-limit table.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: >-
+      Clients should implement exponential backoff with jitter on 5xx
+      responses; honor any Retry-After header when present.
+  - name: Bulk Patterns
+    description: >-
+      For high-volume merchandise, inventory, and order synchronization
+      prefer the Retail Integration Cloud Service (RICS) bulk job patterns
+      over hitting transactional REST endpoints.
+  - name: Capacity Adjustment
+    description: >-
+      Sustained high-volume integration requirements should be coordinated
+      through Oracle Retail Support; tenancies on dedicated pods can request
+      capacity increases.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
