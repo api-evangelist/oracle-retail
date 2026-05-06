@@ -1,0 +1,473 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Retail Merchandising Foundation Cloud Service API
+  description: Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies,
+    item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail
+    operations.
+  tags:
+  - Oracle
+  - Retail
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: oracle-retail
+    baseUri: https://retail.example.com/MerchServices/MerchRes/v1
+    description: Oracle Retail Merchandising Foundation Cloud Service API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{ORACLE_RETAIL_TOKEN}}'
+    resources:
+    - name: items
+      path: /items
+      operations:
+      - name: listitems
+        method: GET
+        description: List items
+        inputParameters:
+        - name: department
+          in: query
+          type: integer
+          description: Filter by department number
+        - name: class
+          in: query
+          type: integer
+          description: Filter by class number
+        - name: subclass
+          in: query
+          type: integer
+          description: Filter by subclass number
+        - name: status
+          in: query
+          type: string
+          description: Filter by item status
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createitem
+        method: POST
+        description: Create an item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: items-item
+      path: /items/{item}
+      operations:
+      - name: getitem
+        method: GET
+        description: Get an item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateitem
+        method: PUT
+        description: Update an item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: purchaseorders
+      path: /purchaseorders
+      operations:
+      - name: listpurchaseorders
+        method: GET
+        description: List purchase orders
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          description: Filter by order status
+        - name: supplier
+          in: query
+          type: integer
+          description: Filter by supplier number
+        - name: fromDate
+          in: query
+          type: string
+          description: Filter orders not before this date (YYYY-MM-DD)
+        - name: toDate
+          in: query
+          type: string
+          description: Filter orders not after this date (YYYY-MM-DD)
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpurchaseorder
+        method: POST
+        description: Create a purchase order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: purchaseorders-orderid
+      path: /purchaseorders/{orderId}
+      operations:
+      - name: getpurchaseorder
+        method: GET
+        description: Get a purchase order
+        inputParameters:
+        - name: orderId
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: suppliers
+      path: /suppliers
+      operations:
+      - name: listsuppliers
+        method: GET
+        description: List suppliers
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: inventory
+      path: /inventory
+      operations:
+      - name: getinventory
+        method: GET
+        description: Query inventory positions
+        inputParameters:
+        - name: item
+          in: query
+          type: string
+          required: true
+          description: Item number
+        - name: location
+          in: query
+          type: integer
+          description: Store or warehouse number
+        - name: locationType
+          in: query
+          type: string
+          description: Location type (S=Store, W=Warehouse)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: oracle-retail-rest
+    description: REST adapter for Oracle Retail Merchandising Foundation Cloud Service API.
+    resources:
+    - path: /items
+      name: listitems
+      operations:
+      - method: GET
+        name: listitems
+        description: List items
+        call: oracle-retail.listitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /items
+      name: createitem
+      operations:
+      - method: POST
+        name: createitem
+        description: Create an item
+        call: oracle-retail.createitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /items/{item}
+      name: getitem
+      operations:
+      - method: GET
+        name: getitem
+        description: Get an item
+        call: oracle-retail.getitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /items/{item}
+      name: updateitem
+      operations:
+      - method: PUT
+        name: updateitem
+        description: Update an item
+        call: oracle-retail.updateitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /purchaseorders
+      name: listpurchaseorders
+      operations:
+      - method: GET
+        name: listpurchaseorders
+        description: List purchase orders
+        call: oracle-retail.listpurchaseorders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /purchaseorders
+      name: createpurchaseorder
+      operations:
+      - method: POST
+        name: createpurchaseorder
+        description: Create a purchase order
+        call: oracle-retail.createpurchaseorder
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /purchaseorders/{orderId}
+      name: getpurchaseorder
+      operations:
+      - method: GET
+        name: getpurchaseorder
+        description: Get a purchase order
+        call: oracle-retail.getpurchaseorder
+        with:
+          orderId: rest.orderId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /suppliers
+      name: listsuppliers
+      operations:
+      - method: GET
+        name: listsuppliers
+        description: List suppliers
+        call: oracle-retail.listsuppliers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /inventory
+      name: getinventory
+      operations:
+      - method: GET
+        name: getinventory
+        description: Query inventory positions
+        call: oracle-retail.getinventory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: oracle-retail-mcp
+    transport: http
+    description: MCP adapter for Oracle Retail Merchandising Foundation Cloud Service API for AI agent use.
+    tools:
+    - name: listitems
+      description: List items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.listitems
+      with:
+        department: tools.department
+        class: tools.class
+        subclass: tools.subclass
+        status: tools.status
+        offset: tools.offset
+        limit: tools.limit
+      inputParameters:
+      - name: department
+        type: integer
+        description: Filter by department number
+      - name: class
+        type: integer
+        description: Filter by class number
+      - name: subclass
+        type: integer
+        description: Filter by subclass number
+      - name: status
+        type: string
+        description: Filter by item status
+      - name: offset
+        type: integer
+        description: offset
+      - name: limit
+        type: integer
+        description: limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createitem
+      description: Create an item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: oracle-retail.createitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getitem
+      description: Get an item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.getitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateitem
+      description: Update an item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: oracle-retail.updateitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listpurchaseorders
+      description: List purchase orders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.listpurchaseorders
+      with:
+        status: tools.status
+        supplier: tools.supplier
+        fromDate: tools.fromDate
+        toDate: tools.toDate
+        offset: tools.offset
+        limit: tools.limit
+      inputParameters:
+      - name: status
+        type: string
+        description: Filter by order status
+      - name: supplier
+        type: integer
+        description: Filter by supplier number
+      - name: fromDate
+        type: string
+        description: Filter orders not before this date (YYYY-MM-DD)
+      - name: toDate
+        type: string
+        description: Filter orders not after this date (YYYY-MM-DD)
+      - name: offset
+        type: integer
+        description: offset
+      - name: limit
+        type: integer
+        description: limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createpurchaseorder
+      description: Create a purchase order
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: oracle-retail.createpurchaseorder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpurchaseorder
+      description: Get a purchase order
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.getpurchaseorder
+      with:
+        orderId: tools.orderId
+      inputParameters:
+      - name: orderId
+        type: integer
+        description: orderId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsuppliers
+      description: List suppliers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.listsuppliers
+      with:
+        status: tools.status
+        offset: tools.offset
+        limit: tools.limit
+      inputParameters:
+      - name: status
+        type: string
+        description: status
+      - name: offset
+        type: integer
+        description: offset
+      - name: limit
+        type: integer
+        description: limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinventory
+      description: Query inventory positions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: oracle-retail.getinventory
+      with:
+        item: tools.item
+        location: tools.location
+        locationType: tools.locationType
+      inputParameters:
+      - name: item
+        type: string
+        description: Item number
+        required: true
+      - name: location
+        type: integer
+        description: Store or warehouse number
+      - name: locationType
+        type: string
+        description: Location type (S=Store, W=Warehouse)
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ORACLE_RETAIL_TOKEN: ORACLE_RETAIL_TOKEN
