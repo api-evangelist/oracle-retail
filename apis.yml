@@ -119,15 +119,15 @@ common:
     url: https://community.oracle.com/gbu/rgbu/
   - type: Blog
     url: https://blogs.oracle.com/retail/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.oracle.com/legal/privacy/privacy-policy/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.oracle.com/legal/terms/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/oracle
   - type: Developer Portal
     url: https://www.oracle.com/developer/
-  - type: Status
+  - type: StatusPage
     url: https://ocistatus.oraclecloud.com/
   - type: OpenAPI
     url: openapi/oracle-retail-merchandising-openapi.yml
