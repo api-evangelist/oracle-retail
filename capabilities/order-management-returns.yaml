@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oracle Retail Order Management Suite Cloud Service API — Returns
+  description: 'Oracle Retail Order Management Suite Cloud Service API — Returns. 1 operations. Lead operation: Create a return.
+    Self-contained Naftiko capability covering one Oracle Retail business surface.'
+  tags:
+  - Oracle Retail
+  - Returns
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ORACLE_RETAIL_API_KEY: ORACLE_RETAIL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: order-management-returns
+    baseUri: https://{host}/oms/api/v1
+    description: Oracle Retail Order Management Suite Cloud Service API — Returns business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: returns
+      path: /returns
+      operations:
+      - name: createreturn
+        method: POST
+        description: Create a return
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ORACLE_RETAIL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: order-management-returns-rest
+    port: 8080
+    description: REST adapter for Oracle Retail Order Management Suite Cloud Service API — Returns. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/returns
+      name: returns
+      description: REST surface for returns.
+      operations:
+      - method: POST
+        name: createreturn
+        description: Create a return
+        call: order-management-returns.createreturn
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: order-management-returns-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oracle Retail Order Management Suite Cloud Service API — Returns. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: create-return
+      description: Create a return
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: order-management-returns.createreturn
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
