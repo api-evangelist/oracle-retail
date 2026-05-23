@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ShipmentRequest",
+  "title": "ShipmentRequest",
+  "type": "object",
+  "required": [
+    "orderId",
+    "trackingNumber",
+    "carrier"
+  ],
+  "properties": {
+    "orderId": {
+      "type": "string"
+    },
+    "lineIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trackingNumber": {
+      "type": "string"
+    },
+    "carrier": {
+      "type": "string"
+    },
+    "shipDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "estimatedDeliveryDate": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

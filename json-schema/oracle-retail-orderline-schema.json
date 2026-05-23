@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrderLine",
+  "title": "OrderLine",
+  "type": "object",
+  "properties": {
+    "lineId": {
+      "type": "string"
+    },
+    "itemId": {
+      "type": "string"
+    },
+    "itemDescription": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "unitPrice": {
+      "type": "number",
+      "format": "double"
+    },
+    "lineTotal": {
+      "type": "number",
+      "format": "double"
+    },
+    "status": {
+      "type": "string"
+    },
+    "fulfillmentType": {
+      "type": "string",
+      "enum": [
+        "SHIP_TO_HOME",
+        "SHIP_TO_STORE",
+        "PICKUP_IN_STORE",
+        "DELIVERY"
+      ]
+    }
+  }
+}

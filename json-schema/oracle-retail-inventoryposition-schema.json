@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InventoryPosition",
+  "title": "InventoryPosition",
+  "type": "object",
+  "description": "Inventory quantity position at a location",
+  "properties": {
+    "item": {
+      "type": "string"
+    },
+    "location": {
+      "type": "integer"
+    },
+    "locationType": {
+      "type": "string",
+      "enum": [
+        "S",
+        "W"
+      ]
+    },
+    "stockOnHand": {
+      "type": "number",
+      "format": "double"
+    },
+    "stockOnOrder": {
+      "type": "number",
+      "format": "double"
+    },
+    "stockInTransit": {
+      "type": "number",
+      "format": "double"
+    },
+    "availableToSell": {
+      "type": "number",
+      "format": "double"
+    },
+    "nonSellable": {
+      "type": "number",
+      "format": "double"
+    },
+    "lastUpdateDatetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

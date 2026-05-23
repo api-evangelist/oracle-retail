@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PurchaseOrderCreate",
+  "title": "PurchaseOrderCreate",
+  "type": "object",
+  "required": [
+    "supplier",
+    "orderDate",
+    "currencyCode"
+  ],
+  "properties": {
+    "supplier": {
+      "type": "integer"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "notBeforeDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "notAfterDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "currencyCode": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "freightTerms": {
+      "type": "string"
+    },
+    "paymentTerms": {
+      "type": "string"
+    }
+  }
+}

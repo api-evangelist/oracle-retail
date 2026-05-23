@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ItemUpdate",
+  "title": "ItemUpdate",
+  "type": "object",
+  "properties": {
+    "itemDesc": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "A",
+        "C",
+        "D"
+      ]
+    },
+    "unitRetail": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ItemCreate",
+  "title": "ItemCreate",
+  "type": "object",
+  "required": [
+    "item",
+    "itemDesc",
+    "dept",
+    "class",
+    "subclass"
+  ],
+  "properties": {
+    "item": {
+      "type": "string",
+      "maxLength": 25
+    },
+    "itemDesc": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "dept": {
+      "type": "integer"
+    },
+    "class": {
+      "type": "integer"
+    },
+    "subclass": {
+      "type": "integer"
+    },
+    "itemType": {
+      "type": "string",
+      "enum": [
+        "REG",
+        "CON",
+        "TFM",
+        "RB",
+        "SB",
+        "T"
+      ],
+      "default": "REG"
+    },
+    "unitRetail": {
+      "type": "number",
+      "format": "double"
+    },
+    "currencyCode": {
+      "type": "string",
+      "maxLength": 3
+    }
+  }
+}

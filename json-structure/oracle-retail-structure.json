@@ -1,0 +1,163 @@
+{
+  "provider": "Oracle Retail",
+  "providerId": "oracle-retail",
+  "kind": "json-structure",
+  "description": "Structural overview of the Oracle Retail API surface; extracted from openapi/.",
+  "schemaCount": 10,
+  "operationCount": 9,
+  "schemas": [
+    {
+      "name": "Item",
+      "type": "object",
+      "propertyCount": 19,
+      "required": []
+    },
+    {
+      "name": "ItemCreate",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "item",
+        "itemDesc",
+        "dept",
+        "class",
+        "subclass"
+      ]
+    },
+    {
+      "name": "ItemUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "PurchaseOrder",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "PurchaseOrderCreate",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "supplier",
+        "orderDate",
+        "currencyCode"
+      ]
+    },
+    {
+      "name": "PurchaseOrderDetail",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PurchaseOrderLine",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "Supplier",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "InventoryPosition",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "Error",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/items",
+      "operationId": "listItems",
+      "summary": "List items",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/items",
+      "operationId": "createItem",
+      "summary": "Create an item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/items/{item}",
+      "operationId": "getItem",
+      "summary": "Get an item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/items/{item}",
+      "operationId": "updateItem",
+      "summary": "Update an item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/purchaseorders",
+      "operationId": "listPurchaseOrders",
+      "summary": "List purchase orders",
+      "tags": [
+        "PurchaseOrders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/purchaseorders",
+      "operationId": "createPurchaseOrder",
+      "summary": "Create a purchase order",
+      "tags": [
+        "PurchaseOrders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/purchaseorders/{orderId}",
+      "operationId": "getPurchaseOrder",
+      "summary": "Get a purchase order",
+      "tags": [
+        "PurchaseOrders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/suppliers",
+      "operationId": "listSuppliers",
+      "summary": "List suppliers",
+      "tags": [
+        "Suppliers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/inventory",
+      "operationId": "getInventory",
+      "summary": "Query inventory positions",
+      "tags": [
+        "Inventory"
+      ]
+    }
+  ]
+}

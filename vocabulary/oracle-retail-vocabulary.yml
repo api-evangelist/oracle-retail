@@ -1,0 +1,13 @@
+name: Oracle Retail Domain Vocabulary
+provider: Oracle Retail
+providerId: oracle-retail
+description: Tag-derived vocabulary for the Oracle Retail API surface; sourced from openapi/ tags.
+terms:
+- term: Inventory
+  description: Inventory and stock on hand
+- term: Items
+  description: Item setup and attributes
+- term: PurchaseOrders
+  description: Purchase order management
+- term: Suppliers
+  description: Supplier management

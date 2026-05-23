@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PurchaseOrderLine",
+  "title": "PurchaseOrderLine",
+  "type": "object",
+  "properties": {
+    "seqNo": {
+      "type": "integer"
+    },
+    "item": {
+      "type": "string"
+    },
+    "location": {
+      "type": "integer"
+    },
+    "locationType": {
+      "type": "string",
+      "enum": [
+        "S",
+        "W"
+      ]
+    },
+    "unitCost": {
+      "type": "number",
+      "format": "double"
+    },
+    "unitRetail": {
+      "type": "number",
+      "format": "double"
+    },
+    "qtyOrdered": {
+      "type": "number",
+      "format": "double"
+    },
+    "qtyReceived": {
+      "type": "number",
+      "format": "double"
+    },
+    "shipDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "cancelAfterDate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

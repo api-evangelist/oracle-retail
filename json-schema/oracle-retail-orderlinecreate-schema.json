@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrderLineCreate",
+  "title": "OrderLineCreate",
+  "type": "object",
+  "required": [
+    "itemId",
+    "quantity",
+    "unitPrice"
+  ],
+  "properties": {
+    "itemId": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "unitPrice": {
+      "type": "number",
+      "format": "double"
+    },
+    "fulfillmentType": {
+      "type": "string",
+      "enum": [
+        "SHIP_TO_HOME",
+        "SHIP_TO_STORE",
+        "PICKUP_IN_STORE",
+        "DELIVERY"
+      ],
+      "default": "SHIP_TO_HOME"
+    }
+  }
+}

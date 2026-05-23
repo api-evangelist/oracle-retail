@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Supplier",
+  "title": "Supplier",
+  "type": "object",
+  "description": "A merchandise supplier",
+  "properties": {
+    "supplier": {
+      "type": "integer",
+      "description": "Supplier number"
+    },
+    "supplierName": {
+      "type": "string",
+      "description": "Supplier name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "A",
+        "I"
+      ],
+      "description": "A=Active, I=Inactive"
+    },
+    "primaryContactName": {
+      "type": "string"
+    },
+    "primaryPhone": {
+      "type": "string"
+    },
+    "primaryEmail": {
+      "type": "string",
+      "format": "email"
+    },
+    "remitAddress": {
+      "type": "string"
+    },
+    "remitCity": {
+      "type": "string"
+    },
+    "remitState": {
+      "type": "string"
+    },
+    "remitCountry": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "remitZip": {
+      "type": "string"
+    },
+    "currencyCode": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "paymentTerms": {
+      "type": "string"
+    },
+    "freightTerms": {
+      "type": "string"
+    },
+    "createDatetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

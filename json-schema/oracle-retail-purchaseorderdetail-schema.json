@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PurchaseOrderDetail",
+  "title": "PurchaseOrderDetail",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PurchaseOrder"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PurchaseOrderLine"
+          }
+        }
+      }
+    }
+  ]
+}

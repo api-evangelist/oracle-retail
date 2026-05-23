@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PurchaseOrder",
+  "title": "PurchaseOrder",
+  "type": "object",
+  "description": "A purchase order header",
+  "properties": {
+    "orderId": {
+      "type": "integer",
+      "description": "Order number"
+    },
+    "supplier": {
+      "type": "integer",
+      "description": "Supplier number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "W",
+        "A",
+        "C",
+        "T",
+        "D"
+      ],
+      "description": "W=Worksheet, A=Approved, C=Closed, T=Terminated, D=Deleted"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "notBeforeDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "notAfterDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "freightTerms": {
+      "type": "string"
+    },
+    "paymentTerms": {
+      "type": "string"
+    },
+    "currencyCode": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "totalCost": {
+      "type": "number",
+      "format": "double"
+    },
+    "totalRetail": {
+      "type": "number",
+      "format": "double"
+    },
+    "createDatetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdateDatetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
