@@ -118,7 +118,7 @@ common:
     url: https://www.oracle.com/legal/terms/
   - type: GitHubOrganization
     url: https://github.com/oracle
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://www.oracle.com/developer/
   - type: StatusPage
     url: https://ocistatus.oraclecloud.com/
@@ -126,11 +126,11 @@ common:
     url: openapi/oracle-retail-merchandising-openapi.yml
   - type: OpenAPI
     url: openapi/oracle-retail-order-management-openapi.yml
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/oracle-retail-item-schema.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/oracle-retail-order-schema.json
-  - type: JSON-LD Context
+  - type: JSONLDContext
     url: json-ld/oracle-retail-context.jsonld
 maintainers:
   - FN: Kin Lane
