@@ -100,6 +100,10 @@ apis:
       - type: Documentation
         url: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
 common:
+  - type: DomainSecurity
+    url: security/oracle-retail-domain-security.yml
+  - type: Authentication
+    url: authentication/oracle-retail-authentication.yml
   - type: OAuthScopes
     url: scopes/oracle-retail-scopes.yml
   - type: LinkedIn
