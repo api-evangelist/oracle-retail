@@ -1,0 +1,39 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/oracle-retail-merchandising-openapi.yml, openapi/oracle-retail-order-management-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/oracle-retail-merchandising-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+- name: oauth2
+  source: openapi/oracle-retail-order-management-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+scopes:
+- scope: oms.read
+  description: Read order data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/oracle-retail-order-management-openapi.yml
+- scope: oms.write
+  description: Write order data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/oracle-retail-order-management-openapi.yml
+- scope: retail.read
+  description: Read retail data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/oracle-retail-merchandising-openapi.yml
+- scope: retail.write
+  description: Write retail data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/oracle-retail-merchandising-openapi.yml
