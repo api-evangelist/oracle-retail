@@ -2,11 +2,10 @@
   "repo": "oracle-retail",
   "feeds": [
     {
-      "source": "https://blogs.oracle.com/retail/",
-      "saved": 0,
-      "error": "HTTP 403 Forbidden on scrape"
+      "source": "https://community.oracle.com/gbu/rgbu/",
+      "error": "HTTPError"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-27T12:59:35Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
