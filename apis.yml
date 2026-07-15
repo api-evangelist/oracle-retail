@@ -100,6 +100,8 @@ apis:
       - type: Documentation
         url: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
 common:
+  - type: AgenticAccess
+    url: agentic-access/oracle-retail-agentic-access.yml
   - type: DomainSecurity
     url: security/oracle-retail-domain-security.yml
   - type: Authentication
