@@ -1,0 +1,332 @@
+openapi: 3.1.0
+info:
+  title: Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API
+  description: Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.
+  version: 26.1.0
+  contact:
+    name: Oracle Retail Support
+    url: https://support.oracle.com
+  license:
+    name: Oracle Technology Network License
+    url: https://www.oracle.com/legal/terms/
+servers:
+- url: https://{host}/MerchServices/MerchRes/v1
+  description: Oracle Retail Merchandising REST API
+  variables:
+    host:
+      default: retail.example.com
+      description: RMFCS hostname
+security:
+- oauth2: []
+tags:
+- name: Items
+  description: Item setup and attributes
+paths:
+  /items:
+    get:
+      operationId: listItems
+      summary: List items
+      description: Returns a paginated list of merchandise items with optional filters.
+      tags:
+      - Items
+      parameters:
+      - name: department
+        in: query
+        description: Filter by department number
+        schema:
+          type: integer
+      - name: class
+        in: query
+        description: Filter by class number
+        schema:
+          type: integer
+      - name: subclass
+        in: query
+        description: Filter by subclass number
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: Filter by item status
+        schema:
+          type: string
+          enum:
+          - A
+          - C
+          - D
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 100
+          maximum: 500
+      responses:
+        '200':
+          description: Item list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+                  totalCount:
+                    type: integer
+                  offset:
+                    type: integer
+                  limit:
+                    type: integer
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createItem
+      summary: Create an item
+      description: Creates a new merchandise item record.
+      tags:
+      - Items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreate'
+      responses:
+        '201':
+          description: Item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /items/{item}:
+    get:
+      operationId: getItem
+      summary: Get an item
+      description: Returns item details including description, supplier, and hierarchy.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/ItemParam'
+      responses:
+        '200':
+          description: Item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateItem
+      summary: Update an item
+      description: Updates item attributes such as description, status, or hierarchy assignment.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/ItemParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemUpdate'
+      responses:
+        '200':
+          description: Item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    ItemCreate:
+      type: object
+      required:
+      - item
+      - itemDesc
+      - dept
+      - class
+      - subclass
+      properties:
+        item:
+          type: string
+          maxLength: 25
+        itemDesc:
+          type: string
+          maxLength: 250
+        dept:
+          type: integer
+        class:
+          type: integer
+        subclass:
+          type: integer
+        itemType:
+          type: string
+          enum:
+          - REG
+          - CON
+          - TFM
+          - RB
+          - SB
+          - T
+          default: REG
+        unitRetail:
+          type: number
+          format: double
+        currencyCode:
+          type: string
+          maxLength: 3
+    Item:
+      type: object
+      description: A retail merchandise item
+      properties:
+        item:
+          type: string
+          maxLength: 25
+          description: Item number
+        itemDesc:
+          type: string
+          maxLength: 250
+          description: Item description
+        itemDescSecond:
+          type: string
+          maxLength: 250
+          description: Secondary item description
+        status:
+          type: string
+          enum:
+          - A
+          - C
+          - D
+          description: A=Active, C=Discontinued, D=Deleted
+        dept:
+          type: integer
+          description: Department number
+        class:
+          type: integer
+          description: Class number
+        subclass:
+          type: integer
+          description: Subclass number
+        itemType:
+          type: string
+          enum:
+          - REG
+          - CON
+          - TFM
+          - RB
+          - SB
+          - T
+          description: REG=Regular, CON=Consignment, TFM=Transform
+        sellable:
+          type: string
+          enum:
+          - Y
+          - N
+        orderable:
+          type: string
+          enum:
+          - Y
+          - N
+        inventoryInd:
+          type: string
+          enum:
+          - Y
+          - N
+        retailLabel:
+          type: string
+        unitRetail:
+          type: number
+          format: double
+          description: Current retail price
+        currencyCode:
+          type: string
+          maxLength: 3
+        supplier:
+          type: integer
+          description: Primary supplier number
+        originCountry:
+          type: string
+          maxLength: 3
+        unitCost:
+          type: number
+          format: double
+        createDatetime:
+          type: string
+          format: date-time
+        lastUpdateDatetime:
+          type: string
+          format: date-time
+    ItemUpdate:
+      type: object
+      properties:
+        itemDesc:
+          type: string
+          maxLength: 250
+        status:
+          type: string
+          enum:
+          - A
+          - C
+          - D
+        unitRetail:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+  responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ItemParam:
+      name: item
+      in: path
+      required: true
+      description: Item number (up to 25 chars)
+      schema:
+        type: string
+        maxLength: 25
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+          scopes:
+            retail.read: Read retail data
+            retail.write: Write retail data

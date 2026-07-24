@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API
+  description: Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.
+  version: 26.1.0
+  contact:
+    name: Oracle Retail Support
+    url: https://support.oracle.com
+  license:
+    name: Oracle Technology Network License
+    url: https://www.oracle.com/legal/terms/
+servers:
+- url: https://{host}/MerchServices/MerchRes/v1
+  description: Oracle Retail Merchandising REST API
+  variables:
+    host:
+      default: retail.example.com
+      description: RMFCS hostname
+security:
+- oauth2: []
+tags:
+- name: Inventory
+  description: Inventory and stock on hand
+paths:
+  /inventory:
+    get:
+      operationId: getInventory
+      summary: Query inventory positions
+      description: Returns stock on hand, on order, and available to sell by item and location.
+      tags:
+      - Inventory
+      parameters:
+      - name: item
+        in: query
+        required: true
+        description: Item number
+        schema:
+          type: string
+      - name: location
+        in: query
+        description: Store or warehouse number
+        schema:
+          type: integer
+      - name: locationType
+        in: query
+        description: Location type (S=Store, W=Warehouse)
+        schema:
+          type: string
+          enum:
+          - S
+          - W
+      responses:
+        '200':
+          description: Inventory position
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inventoryPositions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryPosition'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    InventoryPosition:
+      type: object
+      description: Inventory quantity position at a location
+      properties:
+        item:
+          type: string
+        location:
+          type: integer
+        locationType:
+          type: string
+          enum:
+          - S
+          - W
+        stockOnHand:
+          type: number
+          format: double
+        stockOnOrder:
+          type: number
+          format: double
+        stockInTransit:
+          type: number
+          format: double
+        availableToSell:
+          type: number
+          format: double
+        nonSellable:
+          type: number
+          format: double
+        lastUpdateDatetime:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+  responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+          scopes:
+            retail.read: Read retail data
+            retail.write: Write retail data

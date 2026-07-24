@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Oracle Retail Merchandising Foundation Cloud Service Fulfillment API
+  description: Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.
+  version: 26.1.0
+  contact:
+    name: Oracle Retail Support
+    url: https://support.oracle.com
+  license:
+    name: Oracle Technology Network License
+    url: https://www.oracle.com/legal/terms/
+servers:
+- url: https://{host}/MerchServices/MerchRes/v1
+  description: Oracle Retail Merchandising REST API
+  variables:
+    host:
+      default: retail.example.com
+      description: RMFCS hostname
+security:
+- oauth2: []
+tags:
+- name: Fulfillment
+  description: Fulfillment and sourcing operations
+paths:
+  /fulfillment/ship-order:
+    post:
+      operationId: shipOrder
+      summary: Record a shipment
+      description: Records a shipment event for fulfillment nodes, advancing order status.
+      tags:
+      - Fulfillment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentRequest'
+      responses:
+        '200':
+          description: Shipment recorded
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    ShipmentRequest:
+      type: object
+      required:
+      - orderId
+      - trackingNumber
+      - carrier
+      properties:
+        orderId:
+          type: string
+        lineIds:
+          type: array
+          items:
+            type: string
+        trackingNumber:
+          type: string
+        carrier:
+          type: string
+        shipDate:
+          type: string
+          format: date-time
+        estimatedDeliveryDate:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.oraclecloud.com/oauth2/v1/token
+          scopes:
+            retail.read: Read retail data
+            retail.write: Write retail data
