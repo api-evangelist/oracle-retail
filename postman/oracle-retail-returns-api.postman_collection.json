@@ -1,0 +1,210 @@
+{
+  "info": {
+    "_postman_id": "0caaac8e-0760-4cb5-a7de-f8b41f076d7e",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Returns API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:37.000Z",
+    "updatedAt": "2026-07-28T02:28:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0caaac8e-0760-4cb5-a7de-f8b41f076d7e"
+  },
+  "item": [
+    {
+      "name": "returns",
+      "item": [
+        {
+          "name": "Create a return",
+          "id": "c17daa04-ebd1-4170-9e9b-18d85c334a4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/returns",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "returns"
+              ]
+            },
+            "description": "Initiates a customer return authorization for one or more order lines."
+          },
+          "response": [
+            {
+              "id": "038102cb-89cd-4bc1-a7cd-8d566de19967",
+              "name": "Return authorization created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/returns",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "returns"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"returnId\": \"<string>\",\n  \"orderId\": \"<string>\",\n  \"status\": \"REFUNDED\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    }\n  ],\n  \"createDatetime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:28:38.000Z",
+              "updatedAt": "2026-07-28T02:28:38.000Z",
+              "uid": "35240-038102cb-89cd-4bc1-a7cd-8d566de19967"
+            },
+            {
+              "id": "f43a6e1b-c4d6-4822-9510-32186833aa59",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/returns",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "returns"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:28:38.000Z",
+              "updatedAt": "2026-07-28T02:28:38.000Z",
+              "uid": "35240-f43a6e1b-c4d6-4822-9510-32186833aa59"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:38.000Z",
+          "updatedAt": "2026-07-28T02:28:38.000Z",
+          "uid": "35240-c17daa04-ebd1-4170-9e9b-18d85c334a4a"
+        }
+      ],
+      "id": "19cc295e-99d2-492b-9017-c2050bb0c453",
+      "createdAt": "2026-07-28T02:28:38.000Z",
+      "updatedAt": "2026-07-28T02:28:38.000Z",
+      "uid": "35240-19cc295e-99d2-492b-9017-c2050bb0c453"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}

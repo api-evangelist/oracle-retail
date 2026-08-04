@@ -1,0 +1,560 @@
+{
+  "info": {
+    "_postman_id": "f659cb7d-16a3-4af0-9e06-2ebe8e778a63",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment PurchaseOrders API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:36.000Z",
+    "updatedAt": "2026-07-28T02:28:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f659cb7d-16a3-4af0-9e06-2ebe8e778a63"
+  },
+  "item": [
+    {
+      "name": "purchaseorders",
+      "item": [
+        {
+          "name": "{orderId}",
+          "item": [
+            {
+              "name": "Get a purchase order",
+              "id": "1696c941-41e5-4a58-9992-bddc08d1d71a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "acfe0ae0-0d1a-4ca6-a1e1-3bf771277898",
+                      "key": "orderId",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns purchase order header and detail lines."
+              },
+              "response": [
+                {
+                  "id": "a65482e0-d52d-487a-8819-e57fa23b81b6",
+                  "name": "Purchase order details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orderId\": \"<integer>\",\n  \"supplier\": \"<integer>\",\n  \"status\": \"W\",\n  \"orderDate\": \"<date>\",\n  \"notBeforeDate\": \"<date>\",\n  \"notAfterDate\": \"<date>\",\n  \"freightTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"totalCost\": \"<double>\",\n  \"totalRetail\": \"<double>\",\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\",\n  \"lines\": [\n    {\n      \"seqNo\": \"<integer>\",\n      \"item\": \"<string>\",\n      \"location\": \"<integer>\",\n      \"locationType\": \"S\",\n      \"unitCost\": \"<double>\",\n      \"unitRetail\": \"<double>\",\n      \"qtyOrdered\": \"<double>\",\n      \"qtyReceived\": \"<double>\",\n      \"shipDate\": \"<date>\",\n      \"cancelAfterDate\": \"<date>\"\n    },\n    {\n      \"seqNo\": \"<integer>\",\n      \"item\": \"<string>\",\n      \"location\": \"<integer>\",\n      \"locationType\": \"S\",\n      \"unitCost\": \"<double>\",\n      \"unitRetail\": \"<double>\",\n      \"qtyOrdered\": \"<double>\",\n      \"qtyReceived\": \"<double>\",\n      \"shipDate\": \"<date>\",\n      \"cancelAfterDate\": \"<date>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:28:37.000Z",
+                  "updatedAt": "2026-07-28T02:28:37.000Z",
+                  "uid": "35240-a65482e0-d52d-487a-8819-e57fa23b81b6"
+                },
+                {
+                  "id": "a200b6ed-7ee8-48b1-af0c-5a4a89d3252b",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:28:37.000Z",
+                  "updatedAt": "2026-07-28T02:28:37.000Z",
+                  "uid": "35240-a200b6ed-7ee8-48b1-af0c-5a4a89d3252b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:37.000Z",
+              "updatedAt": "2026-07-28T02:28:37.000Z",
+              "uid": "35240-1696c941-41e5-4a58-9992-bddc08d1d71a"
+            }
+          ],
+          "id": "228c4d7b-7180-485b-82a2-b6803e721919",
+          "createdAt": "2026-07-28T02:28:37.000Z",
+          "updatedAt": "2026-07-28T02:28:37.000Z",
+          "uid": "35240-228c4d7b-7180-485b-82a2-b6803e721919"
+        },
+        {
+          "name": "List purchase orders",
+          "id": "97c5eee0-32e2-4215-96c5-cfcc42ffaf74",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/purchaseorders?status=D&supplier=<integer>&fromDate=<date>&toDate=<date>&offset=0&limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purchaseorders"
+              ],
+              "query": [
+                {
+                  "description": "Filter by order status",
+                  "key": "status",
+                  "value": "D"
+                },
+                {
+                  "description": "Filter by supplier number",
+                  "key": "supplier",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter orders not before this date (YYYY-MM-DD)",
+                  "key": "fromDate",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter orders not after this date (YYYY-MM-DD)",
+                  "key": "toDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Returns purchase orders with status and shipment information."
+          },
+          "response": [
+            {
+              "id": "f62fdc4e-7035-4524-b51b-e1c9dedab04f",
+              "name": "Purchase order list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders?status=D&supplier=<integer>&fromDate=<date>&toDate=<date>&offset=0&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order status",
+                      "key": "status",
+                      "value": "D"
+                    },
+                    {
+                      "description": "Filter by supplier number",
+                      "key": "supplier",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter orders not before this date (YYYY-MM-DD)",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter orders not after this date (YYYY-MM-DD)",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"purchaseOrders\": [\n    {\n      \"orderId\": \"<integer>\",\n      \"supplier\": \"<integer>\",\n      \"status\": \"A\",\n      \"orderDate\": \"<date>\",\n      \"notBeforeDate\": \"<date>\",\n      \"notAfterDate\": \"<date>\",\n      \"freightTerms\": \"<string>\",\n      \"paymentTerms\": \"<string>\",\n      \"currencyCode\": \"<string>\",\n      \"totalCost\": \"<double>\",\n      \"totalRetail\": \"<double>\",\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    },\n    {\n      \"orderId\": \"<integer>\",\n      \"supplier\": \"<integer>\",\n      \"status\": \"C\",\n      \"orderDate\": \"<date>\",\n      \"notBeforeDate\": \"<date>\",\n      \"notAfterDate\": \"<date>\",\n      \"freightTerms\": \"<string>\",\n      \"paymentTerms\": \"<string>\",\n      \"currencyCode\": \"<string>\",\n      \"totalCost\": \"<double>\",\n      \"totalRetail\": \"<double>\",\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:28:37.000Z",
+              "updatedAt": "2026-07-28T02:28:37.000Z",
+              "uid": "35240-f62fdc4e-7035-4524-b51b-e1c9dedab04f"
+            },
+            {
+              "id": "2c875168-86eb-4402-b30d-106720d51f74",
+              "name": "Authentication required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders?status=D&supplier=<integer>&fromDate=<date>&toDate=<date>&offset=0&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order status",
+                      "key": "status",
+                      "value": "D"
+                    },
+                    {
+                      "description": "Filter by supplier number",
+                      "key": "supplier",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter orders not before this date (YYYY-MM-DD)",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter orders not after this date (YYYY-MM-DD)",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:37.000Z",
+              "updatedAt": "2026-07-28T02:28:37.000Z",
+              "uid": "35240-2c875168-86eb-4402-b30d-106720d51f74"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:37.000Z",
+          "updatedAt": "2026-07-28T02:28:37.000Z",
+          "uid": "35240-97c5eee0-32e2-4215-96c5-cfcc42ffaf74"
+        },
+        {
+          "name": "Create a purchase order",
+          "id": "a8cd4137-80cc-478f-b0b6-4e4e259db7e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supplier\": \"<integer>\",\n  \"orderDate\": \"<date>\",\n  \"currencyCode\": \"<string>\",\n  \"notBeforeDate\": \"<date>\",\n  \"notAfterDate\": \"<date>\",\n  \"freightTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/purchaseorders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purchaseorders"
+              ]
+            },
+            "description": "Creates a new purchase order for a supplier."
+          },
+          "response": [
+            {
+              "id": "4ce55f10-ebcd-4421-b6a2-32f1aafd98d9",
+              "name": "Purchase order created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supplier\": \"<integer>\",\n  \"orderDate\": \"<date>\",\n  \"currencyCode\": \"<string>\",\n  \"notBeforeDate\": \"<date>\",\n  \"notAfterDate\": \"<date>\",\n  \"freightTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"orderId\": \"<integer>\",\n  \"supplier\": \"<integer>\",\n  \"status\": \"A\",\n  \"orderDate\": \"<date>\",\n  \"notBeforeDate\": \"<date>\",\n  \"notAfterDate\": \"<date>\",\n  \"freightTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"totalCost\": \"<double>\",\n  \"totalRetail\": \"<double>\",\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:28:37.000Z",
+              "updatedAt": "2026-07-28T02:28:37.000Z",
+              "uid": "35240-4ce55f10-ebcd-4421-b6a2-32f1aafd98d9"
+            },
+            {
+              "id": "c06ab514-094f-40e1-9894-8c19fac28b07",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supplier\": \"<integer>\",\n  \"orderDate\": \"<date>\",\n  \"currencyCode\": \"<string>\",\n  \"notBeforeDate\": \"<date>\",\n  \"notAfterDate\": \"<date>\",\n  \"freightTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:37.000Z",
+              "updatedAt": "2026-07-28T02:28:37.000Z",
+              "uid": "35240-c06ab514-094f-40e1-9894-8c19fac28b07"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:37.000Z",
+          "updatedAt": "2026-07-28T02:28:37.000Z",
+          "uid": "35240-a8cd4137-80cc-478f-b0b6-4e4e259db7e3"
+        }
+      ],
+      "id": "e1c7d19d-810d-4718-897c-dd171b7317a3",
+      "createdAt": "2026-07-28T02:28:37.000Z",
+      "updatedAt": "2026-07-28T02:28:37.000Z",
+      "uid": "35240-e1c7d19d-810d-4718-897c-dd171b7317a3"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}

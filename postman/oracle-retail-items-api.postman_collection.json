@@ -1,0 +1,738 @@
+{
+  "info": {
+    "_postman_id": "b2bcad53-27fe-46c5-9a7c-68205168f359",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:34.000Z",
+    "updatedAt": "2026-07-28T02:28:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b2bcad53-27fe-46c5-9a7c-68205168f359"
+  },
+  "item": [
+    {
+      "name": "items",
+      "item": [
+        {
+          "name": "{item}",
+          "item": [
+            {
+              "name": "Get an item",
+              "id": "708dfe99-81e9-462d-8abc-51493d4ab941",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/items/:item",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    ":item"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d861d7e8-0da8-4aea-a373-7259653fec78",
+                      "key": "item",
+                      "value": "<string>",
+                      "description": "(Required) Item number (up to 25 chars)"
+                    }
+                  ]
+                },
+                "description": "Returns item details including description, supplier, and hierarchy."
+              },
+              "response": [
+                {
+                  "id": "a37e0f9e-3966-4f4b-a2ed-6221d215d3ad",
+                  "name": "Item details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/:item",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        ":item"
+                      ],
+                      "variable": [
+                        {
+                          "key": "item"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"itemDescSecond\": \"<string>\",\n  \"status\": \"D\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"T\",\n  \"sellable\": \"Y\",\n  \"orderable\": \"Y\",\n  \"inventoryInd\": \"N\",\n  \"retailLabel\": \"<string>\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"supplier\": \"<integer>\",\n  \"originCountry\": \"<string>\",\n  \"unitCost\": \"<double>\",\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:28:35.000Z",
+                  "updatedAt": "2026-07-28T02:28:35.000Z",
+                  "uid": "35240-a37e0f9e-3966-4f4b-a2ed-6221d215d3ad"
+                },
+                {
+                  "id": "ed440d4f-768e-4087-96e0-32cb02506cb4",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/:item",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        ":item"
+                      ],
+                      "variable": [
+                        {
+                          "key": "item"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:28:35.000Z",
+                  "updatedAt": "2026-07-28T02:28:35.000Z",
+                  "uid": "35240-ed440d4f-768e-4087-96e0-32cb02506cb4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-708dfe99-81e9-462d-8abc-51493d4ab941"
+            },
+            {
+              "name": "Update an item",
+              "id": "62dc46da-a962-4e0f-9b3c-cf2e9d89a1cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"itemDesc\": \"<string>\",\n  \"status\": \"C\",\n  \"unitRetail\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/items/:item",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    ":item"
+                  ],
+                  "variable": [
+                    {
+                      "id": "61b98628-637f-4505-b7b6-13c044289234",
+                      "key": "item",
+                      "value": "<string>",
+                      "description": "(Required) Item number (up to 25 chars)"
+                    }
+                  ]
+                },
+                "description": "Updates item attributes such as description, status, or hierarchy assignment."
+              },
+              "response": [
+                {
+                  "id": "c0919e98-7a6f-43f9-b992-601cd75ed831",
+                  "name": "Item updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"itemDesc\": \"<string>\",\n  \"status\": \"C\",\n  \"unitRetail\": \"<double>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/items/:item",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        ":item"
+                      ],
+                      "variable": [
+                        {
+                          "key": "item"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"itemDescSecond\": \"<string>\",\n  \"status\": \"D\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"T\",\n  \"sellable\": \"Y\",\n  \"orderable\": \"Y\",\n  \"inventoryInd\": \"N\",\n  \"retailLabel\": \"<string>\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"supplier\": \"<integer>\",\n  \"originCountry\": \"<string>\",\n  \"unitCost\": \"<double>\",\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:28:35.000Z",
+                  "updatedAt": "2026-07-28T02:28:35.000Z",
+                  "uid": "35240-c0919e98-7a6f-43f9-b992-601cd75ed831"
+                },
+                {
+                  "id": "d7bf6b5f-6d9b-4de2-b634-39edf964ca5c",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"itemDesc\": \"<string>\",\n  \"status\": \"C\",\n  \"unitRetail\": \"<double>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/items/:item",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        ":item"
+                      ],
+                      "variable": [
+                        {
+                          "key": "item"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:28:35.000Z",
+                  "updatedAt": "2026-07-28T02:28:35.000Z",
+                  "uid": "35240-d7bf6b5f-6d9b-4de2-b634-39edf964ca5c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-62dc46da-a962-4e0f-9b3c-cf2e9d89a1cb"
+            }
+          ],
+          "id": "ad5cf0d0-27ac-4cc8-a229-00d1eaf547db",
+          "createdAt": "2026-07-28T02:28:35.000Z",
+          "updatedAt": "2026-07-28T02:28:35.000Z",
+          "uid": "35240-ad5cf0d0-27ac-4cc8-a229-00d1eaf547db"
+        },
+        {
+          "name": "List items",
+          "id": "65edc542-ae79-4636-9135-fe6360629188",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/items?department=<integer>&class=<integer>&subclass=<integer>&status=A&offset=0&limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items"
+              ],
+              "query": [
+                {
+                  "description": "Filter by department number",
+                  "key": "department",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by class number",
+                  "key": "class",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by subclass number",
+                  "key": "subclass",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by item status",
+                  "key": "status",
+                  "value": "A"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of merchandise items with optional filters."
+          },
+          "response": [
+            {
+              "id": "dd7f6f57-a965-4de7-a359-331fb5e21285",
+              "name": "Item list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/items?department=<integer>&class=<integer>&subclass=<integer>&status=A&offset=0&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by department number",
+                      "key": "department",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by class number",
+                      "key": "class",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by subclass number",
+                      "key": "subclass",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by item status",
+                      "key": "status",
+                      "value": "A"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"item\": \"<string>\",\n      \"itemDesc\": \"<string>\",\n      \"itemDescSecond\": \"<string>\",\n      \"status\": \"A\",\n      \"dept\": \"<integer>\",\n      \"class\": \"<integer>\",\n      \"subclass\": \"<integer>\",\n      \"itemType\": \"SB\",\n      \"sellable\": \"N\",\n      \"orderable\": \"N\",\n      \"inventoryInd\": \"Y\",\n      \"retailLabel\": \"<string>\",\n      \"unitRetail\": \"<double>\",\n      \"currencyCode\": \"<string>\",\n      \"supplier\": \"<integer>\",\n      \"originCountry\": \"<string>\",\n      \"unitCost\": \"<double>\",\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    },\n    {\n      \"item\": \"<string>\",\n      \"itemDesc\": \"<string>\",\n      \"itemDescSecond\": \"<string>\",\n      \"status\": \"A\",\n      \"dept\": \"<integer>\",\n      \"class\": \"<integer>\",\n      \"subclass\": \"<integer>\",\n      \"itemType\": \"RB\",\n      \"sellable\": \"Y\",\n      \"orderable\": \"N\",\n      \"inventoryInd\": \"Y\",\n      \"retailLabel\": \"<string>\",\n      \"unitRetail\": \"<double>\",\n      \"currencyCode\": \"<string>\",\n      \"supplier\": \"<integer>\",\n      \"originCountry\": \"<string>\",\n      \"unitCost\": \"<double>\",\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-dd7f6f57-a965-4de7-a359-331fb5e21285"
+            },
+            {
+              "id": "5694911a-beef-49ad-8418-b3f268620fde",
+              "name": "Authentication required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/items?department=<integer>&class=<integer>&subclass=<integer>&status=A&offset=0&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by department number",
+                      "key": "department",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by class number",
+                      "key": "class",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by subclass number",
+                      "key": "subclass",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by item status",
+                      "key": "status",
+                      "value": "A"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-5694911a-beef-49ad-8418-b3f268620fde"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:35.000Z",
+          "updatedAt": "2026-07-28T02:28:35.000Z",
+          "uid": "35240-65edc542-ae79-4636-9135-fe6360629188"
+        },
+        {
+          "name": "Create an item",
+          "id": "82d675ab-c768-437b-82bc-83b26afc70d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"REG\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/items",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "items"
+              ]
+            },
+            "description": "Creates a new merchandise item record."
+          },
+          "response": [
+            {
+              "id": "ff2fc177-21c8-4acd-8598-4a9469835159",
+              "name": "Item created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"REG\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/items",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"itemDescSecond\": \"<string>\",\n  \"status\": \"D\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"T\",\n  \"sellable\": \"Y\",\n  \"orderable\": \"Y\",\n  \"inventoryInd\": \"N\",\n  \"retailLabel\": \"<string>\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"supplier\": \"<integer>\",\n  \"originCountry\": \"<string>\",\n  \"unitCost\": \"<double>\",\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-ff2fc177-21c8-4acd-8598-4a9469835159"
+            },
+            {
+              "id": "e5b3e3d3-70de-4255-a958-fe26c3d4172c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"<string>\",\n  \"itemDesc\": \"<string>\",\n  \"dept\": \"<integer>\",\n  \"class\": \"<integer>\",\n  \"subclass\": \"<integer>\",\n  \"itemType\": \"REG\",\n  \"unitRetail\": \"<double>\",\n  \"currencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/items",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:35.000Z",
+              "updatedAt": "2026-07-28T02:28:35.000Z",
+              "uid": "35240-e5b3e3d3-70de-4255-a958-fe26c3d4172c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:35.000Z",
+          "updatedAt": "2026-07-28T02:28:35.000Z",
+          "uid": "35240-82d675ab-c768-437b-82bc-83b26afc70d0"
+        }
+      ],
+      "id": "ace06735-6369-4415-bf17-b97fdbf927f9",
+      "createdAt": "2026-07-28T02:28:35.000Z",
+      "updatedAt": "2026-07-28T02:28:35.000Z",
+      "uid": "35240-ace06735-6369-4415-bf17-b97fdbf927f9"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}

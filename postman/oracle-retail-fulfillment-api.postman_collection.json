@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "546635ec-912e-4988-aa26-597e6487ebb2",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:32.000Z",
+    "updatedAt": "2026-07-28T02:28:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-546635ec-912e-4988-aa26-597e6487ebb2"
+  },
+  "item": [
+    {
+      "name": "fulfillment",
+      "item": [
+        {
+          "name": "ship-order",
+          "item": [
+            {
+              "name": "Record a shipment",
+              "id": "66f1294c-549f-4740-80e2-5852d7a95393",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fulfillment/ship-order",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fulfillment",
+                    "ship-order"
+                  ]
+                },
+                "description": "Records a shipment event for fulfillment nodes, advancing order status."
+              },
+              "response": [
+                {
+                  "id": "5682ec8e-99c4-4999-9dad-1e8426865e48",
+                  "name": "Shipment recorded",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fulfillment/ship-order",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fulfillment",
+                        "ship-order"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:28:33.000Z",
+                  "updatedAt": "2026-07-28T02:28:33.000Z",
+                  "uid": "35240-5682ec8e-99c4-4999-9dad-1e8426865e48"
+                },
+                {
+                  "id": "5007a096-fbd6-4171-8472-719b9b7c6894",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fulfillment/ship-order",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fulfillment",
+                        "ship-order"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:28:33.000Z",
+                  "updatedAt": "2026-07-28T02:28:33.000Z",
+                  "uid": "35240-5007a096-fbd6-4171-8472-719b9b7c6894"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:33.000Z",
+              "updatedAt": "2026-07-28T02:28:33.000Z",
+              "uid": "35240-66f1294c-549f-4740-80e2-5852d7a95393"
+            }
+          ],
+          "id": "49fe4296-8fe7-44e8-a842-48e8ff6d639f",
+          "createdAt": "2026-07-28T02:28:33.000Z",
+          "updatedAt": "2026-07-28T02:28:33.000Z",
+          "uid": "35240-49fe4296-8fe7-44e8-a842-48e8ff6d639f"
+        }
+      ],
+      "id": "411b8c2f-33fd-430a-a417-1dc6c6559152",
+      "createdAt": "2026-07-28T02:28:33.000Z",
+      "updatedAt": "2026-07-28T02:28:33.000Z",
+      "uid": "35240-411b8c2f-33fd-430a-a417-1dc6c6559152"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}

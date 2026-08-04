@@ -1,0 +1,26 @@
+{
+  "provider": "oracle-retail",
+  "sources": [
+    "oracle-retail-fulfillment-api-openapi.yml",
+    "oracle-retail-inventory-api-openapi.yml",
+    "oracle-retail-items-api-openapi.yml",
+    "oracle-retail-orders-api-openapi.yml",
+    "oracle-retail-purchaseorders-api-openapi.yml",
+    "oracle-retail-returns-api-openapi.yml",
+    "oracle-retail-suppliers-api-openapi.yml"
+  ],
+  "outputs": [
+    "oracle-retail-fulfillment-api-openapi.yml",
+    "oracle-retail-inventory-api-openapi.yml",
+    "oracle-retail-items-api-openapi.yml",
+    "oracle-retail-orders-api-openapi.yml",
+    "oracle-retail-purchaseorders-api-openapi.yml",
+    "oracle-retail-returns-api-openapi.yml",
+    "oracle-retail-suppliers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

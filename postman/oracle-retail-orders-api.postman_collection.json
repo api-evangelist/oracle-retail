@@ -1,0 +1,853 @@
+{
+  "info": {
+    "_postman_id": "6b232a01-e4fd-4fe2-8184-81ef017df095",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Orders API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:35.000Z",
+    "updatedAt": "2026-07-28T02:28:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6b232a01-e4fd-4fe2-8184-81ef017df095"
+  },
+  "item": [
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "{orderId}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel an order",
+                  "id": "418f2bec-5685-4f50-8b25-5e47aa3a8b34",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ef32742c-86ae-40fa-84d0-d807217f489e",
+                          "key": "orderId",
+                          "value": "<string>",
+                          "description": "(Required) Order identifier"
+                        }
+                      ]
+                    },
+                    "description": "Cancels an order or selected line items if order is in a cancellable state."
+                  },
+                  "response": [
+                    {
+                      "id": "6228a440-bf05-4514-91c3-9f5c99aabf13",
+                      "name": "Cancellation processed",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orders/:orderId/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orders",
+                            ":orderId",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:28:36.000Z",
+                      "updatedAt": "2026-07-28T02:28:36.000Z",
+                      "uid": "35240-6228a440-bf05-4514-91c3-9f5c99aabf13"
+                    },
+                    {
+                      "id": "771771e9-d584-4600-858d-1f41e661029c",
+                      "name": "Order cannot be cancelled in current state",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/orders/:orderId/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "orders",
+                            ":orderId",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:28:36.000Z",
+                      "updatedAt": "2026-07-28T02:28:36.000Z",
+                      "uid": "35240-771771e9-d584-4600-858d-1f41e661029c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:28:36.000Z",
+                  "updatedAt": "2026-07-28T02:28:36.000Z",
+                  "uid": "35240-418f2bec-5685-4f50-8b25-5e47aa3a8b34"
+                }
+              ],
+              "id": "c8edb5b4-46fd-456b-ab20-b947347f868f",
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-c8edb5b4-46fd-456b-ab20-b947347f868f"
+            },
+            {
+              "name": "Get an order",
+              "id": "53de7838-3bd9-4272-85a0-e64dc9decd36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c489364e-9bf0-426d-973b-8cd1ea1fcee6",
+                      "key": "orderId",
+                      "value": "<string>",
+                      "description": "(Required) Order identifier"
+                    }
+                  ]
+                },
+                "description": "Returns full order details including lines, fulfillment nodes, and payment."
+              },
+              "response": [
+                {
+                  "id": "673ccab7-0a78-4457-87c0-6f3f3a38a451",
+                  "name": "Order detail",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orderId\": \"<string>\",\n  \"externalOrderId\": \"<string>\",\n  \"status\": \"RETURNED\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"orderDate\": \"<dateTime>\",\n  \"currencyCode\": \"<string>\",\n  \"subtotal\": \"<double>\",\n  \"taxTotal\": \"<double>\",\n  \"shippingTotal\": \"<double>\",\n  \"discountTotal\": \"<double>\",\n  \"orderTotal\": \"<double>\",\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"itemId\": \"<string>\",\n      \"itemDescription\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"lineTotal\": \"<double>\",\n      \"status\": \"<string>\",\n      \"fulfillmentType\": \"SHIP_TO_STORE\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"itemId\": \"<string>\",\n      \"itemDescription\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"lineTotal\": \"<double>\",\n      \"status\": \"<string>\",\n      \"fulfillmentType\": \"SHIP_TO_STORE\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:28:36.000Z",
+                  "updatedAt": "2026-07-28T02:28:36.000Z",
+                  "uid": "35240-673ccab7-0a78-4457-87c0-6f3f3a38a451"
+                },
+                {
+                  "id": "db9dbbcd-b0dd-48d6-a7d0-6879271ce43e",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:28:36.000Z",
+                  "updatedAt": "2026-07-28T02:28:36.000Z",
+                  "uid": "35240-db9dbbcd-b0dd-48d6-a7d0-6879271ce43e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-53de7838-3bd9-4272-85a0-e64dc9decd36"
+            },
+            {
+              "name": "Update an order",
+              "id": "04d183fd-cdb5-4af4-9233-0daa47a07a71",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"contactEmail\": \"<email>\",\n  \"contactPhone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bf137458-2a55-40af-aa4a-1a73d340811b",
+                      "key": "orderId",
+                      "value": "<string>",
+                      "description": "(Required) Order identifier"
+                    }
+                  ]
+                },
+                "description": "Updates mutable fields on an order such as shipping address or contact info."
+              },
+              "response": [
+                {
+                  "id": "c85d742c-eddd-4b5e-9a10-67002b4458ab",
+                  "name": "Order updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"contactEmail\": \"<email>\",\n  \"contactPhone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orderId\": \"<string>\",\n  \"externalOrderId\": \"<string>\",\n  \"status\": \"CANCELLED\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"orderDate\": \"<dateTime>\",\n  \"currencyCode\": \"<string>\",\n  \"subtotal\": \"<double>\",\n  \"taxTotal\": \"<double>\",\n  \"shippingTotal\": \"<double>\",\n  \"discountTotal\": \"<double>\",\n  \"orderTotal\": \"<double>\",\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:28:36.000Z",
+                  "updatedAt": "2026-07-28T02:28:36.000Z",
+                  "uid": "35240-c85d742c-eddd-4b5e-9a10-67002b4458ab"
+                }
+              ],
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-04d183fd-cdb5-4af4-9233-0daa47a07a71"
+            }
+          ],
+          "id": "f366c2a2-1e1c-4237-b075-9b0d036f62ac",
+          "createdAt": "2026-07-28T02:28:36.000Z",
+          "updatedAt": "2026-07-28T02:28:36.000Z",
+          "uid": "35240-f366c2a2-1e1c-4237-b075-9b0d036f62ac"
+        },
+        {
+          "name": "List orders",
+          "id": "21f1d234-e1cc-4cc8-8ed2-c545836ff9f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders?status=DELIVERED&channelId=<string>&customerId=<string>&fromDate=<dateTime>&toDate=<dateTime>&offset=0&limit=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ],
+              "query": [
+                {
+                  "description": "Filter by order status",
+                  "key": "status",
+                  "value": "DELIVERED"
+                },
+                {
+                  "description": "Filter by sales channel",
+                  "key": "channelId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by customer ID",
+                  "key": "customerId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Returns customer orders with status, line items, and fulfillment details."
+          },
+          "response": [
+            {
+              "id": "e347775b-383b-49ba-9e1e-b20d9ffa6ae3",
+              "name": "Order list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?status=DELIVERED&channelId=<string>&customerId=<string>&fromDate=<dateTime>&toDate=<dateTime>&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order status",
+                      "key": "status",
+                      "value": "DELIVERED"
+                    },
+                    {
+                      "description": "Filter by sales channel",
+                      "key": "channelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by customer ID",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"orders\": [\n    {\n      \"orderId\": \"<string>\",\n      \"externalOrderId\": \"<string>\",\n      \"status\": \"PAYMENT_PENDING\",\n      \"channelId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"orderDate\": \"<dateTime>\",\n      \"currencyCode\": \"<string>\",\n      \"subtotal\": \"<double>\",\n      \"taxTotal\": \"<double>\",\n      \"shippingTotal\": \"<double>\",\n      \"discountTotal\": \"<double>\",\n      \"orderTotal\": \"<double>\",\n      \"shippingAddress\": {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"country\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"email\": \"<email>\"\n      },\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    },\n    {\n      \"orderId\": \"<string>\",\n      \"externalOrderId\": \"<string>\",\n      \"status\": \"CANCELLED\",\n      \"channelId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"orderDate\": \"<dateTime>\",\n      \"currencyCode\": \"<string>\",\n      \"subtotal\": \"<double>\",\n      \"taxTotal\": \"<double>\",\n      \"shippingTotal\": \"<double>\",\n      \"discountTotal\": \"<double>\",\n      \"orderTotal\": \"<double>\",\n      \"shippingAddress\": {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"address2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"country\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"email\": \"<email>\"\n      },\n      \"createDatetime\": \"<dateTime>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-e347775b-383b-49ba-9e1e-b20d9ffa6ae3"
+            },
+            {
+              "id": "da501a81-00f2-404d-bbef-335671edcd86",
+              "name": "Authentication required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?status=DELIVERED&channelId=<string>&customerId=<string>&fromDate=<dateTime>&toDate=<dateTime>&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order status",
+                      "key": "status",
+                      "value": "DELIVERED"
+                    },
+                    {
+                      "description": "Filter by sales channel",
+                      "key": "channelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by customer ID",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-da501a81-00f2-404d-bbef-335671edcd86"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:36.000Z",
+          "updatedAt": "2026-07-28T02:28:36.000Z",
+          "uid": "35240-21f1d234-e1cc-4cc8-8ed2-c545836ff9f0"
+        },
+        {
+          "name": "Create an order",
+          "id": "3de8e7d7-a477-4a86-a86c-18951d357a55",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            },
+            "description": "Creates a new customer order for fulfillment."
+          },
+          "response": [
+            {
+              "id": "c1af8515-ead0-43a4-959f-6f2b9f524997",
+              "name": "Order created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"externalOrderId\": \"<string>\",\n  \"status\": \"CANCELLED\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"orderDate\": \"<dateTime>\",\n  \"currencyCode\": \"<string>\",\n  \"subtotal\": \"<double>\",\n  \"taxTotal\": \"<double>\",\n  \"shippingTotal\": \"<double>\",\n  \"discountTotal\": \"<double>\",\n  \"orderTotal\": \"<double>\",\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"createDatetime\": \"<dateTime>\",\n  \"lastUpdateDatetime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-c1af8515-ead0-43a4-959f-6f2b9f524997"
+            },
+            {
+              "id": "afe3a8cd-7eaa-41f7-a596-d40d964ffc78",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:28:36.000Z",
+              "updatedAt": "2026-07-28T02:28:36.000Z",
+              "uid": "35240-afe3a8cd-7eaa-41f7-a596-d40d964ffc78"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:36.000Z",
+          "updatedAt": "2026-07-28T02:28:36.000Z",
+          "uid": "35240-3de8e7d7-a477-4a86-a86c-18951d357a55"
+        }
+      ],
+      "id": "658ed945-49e1-40a9-a12b-29fa0216cac6",
+      "createdAt": "2026-07-28T02:28:36.000Z",
+      "updatedAt": "2026-07-28T02:28:36.000Z",
+      "uid": "35240-658ed945-49e1-40a9-a12b-29fa0216cac6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}

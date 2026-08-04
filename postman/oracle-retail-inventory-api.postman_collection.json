@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "69d01355-fbcf-4da1-9f9c-fb005a9f720b",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API",
+    "description": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:28:33.000Z",
+    "updatedAt": "2026-07-28T02:28:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69d01355-fbcf-4da1-9f9c-fb005a9f720b"
+  },
+  "item": [
+    {
+      "name": "inventory",
+      "item": [
+        {
+          "name": "Query inventory positions",
+          "id": "f5e1362a-cba4-4bc7-9ea9-18f1b1efe84d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inventory?item=<string>&location=<integer>&locationType=S",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Item number",
+                  "key": "item",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Store or warehouse number",
+                  "key": "location",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Location type (S=Store, W=Warehouse)",
+                  "key": "locationType",
+                  "value": "S"
+                }
+              ]
+            },
+            "description": "Returns stock on hand, on order, and available to sell by item and location."
+          },
+          "response": [
+            {
+              "id": "e5f3e811-ec23-4182-b8d2-94468df44858",
+              "name": "Inventory position",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?item=<string>&location=<integer>&locationType=S",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Item number",
+                      "key": "item",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Store or warehouse number",
+                      "key": "location",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Location type (S=Store, W=Warehouse)",
+                      "key": "locationType",
+                      "value": "S"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"inventoryPositions\": [\n    {\n      \"item\": \"<string>\",\n      \"location\": \"<integer>\",\n      \"locationType\": \"S\",\n      \"stockOnHand\": \"<double>\",\n      \"stockOnOrder\": \"<double>\",\n      \"stockInTransit\": \"<double>\",\n      \"availableToSell\": \"<double>\",\n      \"nonSellable\": \"<double>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    },\n    {\n      \"item\": \"<string>\",\n      \"location\": \"<integer>\",\n      \"locationType\": \"S\",\n      \"stockOnHand\": \"<double>\",\n      \"stockOnOrder\": \"<double>\",\n      \"stockInTransit\": \"<double>\",\n      \"availableToSell\": \"<double>\",\n      \"nonSellable\": \"<double>\",\n      \"lastUpdateDatetime\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:34.000Z",
+              "updatedAt": "2026-07-28T02:28:34.000Z",
+              "uid": "35240-e5f3e811-ec23-4182-b8d2-94468df44858"
+            },
+            {
+              "id": "96f57ce1-9f36-4254-bfe1-da6cd68df52d",
+              "name": "Authentication required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?item=<string>&location=<integer>&locationType=S",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Item number",
+                      "key": "item",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Store or warehouse number",
+                      "key": "location",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Location type (S=Store, W=Warehouse)",
+                      "key": "locationType",
+                      "value": "S"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:28:34.000Z",
+              "updatedAt": "2026-07-28T02:28:34.000Z",
+              "uid": "35240-96f57ce1-9f36-4254-bfe1-da6cd68df52d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:28:34.000Z",
+          "updatedAt": "2026-07-28T02:28:34.000Z",
+          "uid": "35240-f5e1362a-cba4-4bc7-9ea9-18f1b1efe84d"
+        }
+      ],
+      "id": "8c689746-ea12-40b8-8f62-a47f74f248f8",
+      "createdAt": "2026-07-28T02:28:34.000Z",
+      "updatedAt": "2026-07-28T02:28:34.000Z",
+      "uid": "35240-8c689746-ea12-40b8-8f62-a47f74f248f8"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "retail.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1"
+    }
+  ]
+}
