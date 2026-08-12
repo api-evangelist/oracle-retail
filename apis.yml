@@ -244,9 +244,9 @@ common:
   - type: StatusPage
     url: https://ocistatus.oraclecloud.com/
   - type: OpenAPI
-    url: openapi/oracle-retail-merchandising-openapi.yml
+    url: openapi/_original/oracle-retail-merchandising-openapi.yml
   - type: OpenAPI
-    url: openapi/oracle-retail-order-management-openapi.yml
+    url: openapi/_original/oracle-retail-order-management-openapi.yml
   - type: JSONSchema
     url: json-schema/oracle-retail-item-schema.json
   - type: JSONSchema
