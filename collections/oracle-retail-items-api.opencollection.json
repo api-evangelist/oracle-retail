@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API",
+    "version": "26.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.oraclecloud.com/oauth2/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/MerchServices/MerchRes/v1/items",
+            "params": [
+              {
+                "name": "department",
+                "value": "",
+                "type": "query",
+                "description": "Filter by department number"
+              },
+              {
+                "name": "class",
+                "value": "",
+                "type": "query",
+                "description": "Filter by class number"
+              },
+              {
+                "name": "subclass",
+                "value": "",
+                "type": "query",
+                "description": "Filter by subclass number"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by item status"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of merchandise items with optional filters."
+        },
+        {
+          "info": {
+            "name": "Create an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/MerchServices/MerchRes/v1/items",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new merchandise item record."
+        },
+        {
+          "info": {
+            "name": "Get an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/MerchServices/MerchRes/v1/items/:item",
+            "params": [
+              {
+                "name": "item",
+                "value": "",
+                "type": "path",
+                "description": "Item number (up to 25 chars)"
+              }
+            ]
+          },
+          "docs": "Returns item details including description, supplier, and hierarchy."
+        },
+        {
+          "info": {
+            "name": "Update an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/MerchServices/MerchRes/v1/items/:item",
+            "params": [
+              {
+                "name": "item",
+                "value": "",
+                "type": "path",
+                "description": "Item number (up to 25 chars)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates item attributes such as description, status, or hierarchy assignment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

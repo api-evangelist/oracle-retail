@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "55527efe-7b0d-4f49-b4fb-25d6bd4d57bd",
+      "name": "Suppliers",
+      "description": {
+        "content": "Supplier management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb0a8cb8-5810-43f2-89eb-bc66f35d219a",
+          "name": "List suppliers",
+          "request": {
+            "name": "List suppliers",
+            "description": {
+              "content": "Returns supplier master data including contact and payment terms.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suppliers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf9e70a7-9f78-4948-8a88-686ac1bc0db4",
+              "name": "Supplier list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"suppliers\": [\n    {\n      \"supplier\": 6549,\n      \"supplierName\": \"string\",\n      \"status\": \"A\",\n      \"primaryContactName\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"utc@aCNjlmgwsiOQbxCbaPB.mahw\",\n      \"remitAddress\": \"string\",\n      \"remitCity\": \"string\",\n      \"remitState\": \"string\",\n      \"remitCountry\": \"str\",\n      \"remitZip\": \"string\",\n      \"currencyCode\": \"str\",\n      \"paymentTerms\": \"string\",\n      \"freightTerms\": \"string\",\n      \"createDatetime\": \"1968-08-03T03:34:59.350Z\"\n    },\n    {\n      \"supplier\": 5733,\n      \"supplierName\": \"string\",\n      \"status\": \"I\",\n      \"primaryContactName\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryEmail\": \"ZSyjRZMbmtPVoZy@Zwgw.qk\",\n      \"remitAddress\": \"string\",\n      \"remitCity\": \"string\",\n      \"remitState\": \"string\",\n      \"remitCountry\": \"str\",\n      \"remitZip\": \"string\",\n      \"currencyCode\": \"str\",\n      \"paymentTerms\": \"string\",\n      \"freightTerms\": \"string\",\n      \"createDatetime\": \"2007-03-19T14:47:50.115Z\"\n    }\n  ],\n  \"totalCount\": 3728\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e01189aa-20dc-4cdc-bdef-2471ff897ff2",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "RMFCS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "retail.example.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a5b465fb-3dae-49a9-baad-0b1cede4426b",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Suppliers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API",
+    "version": "26.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://identity.oraclecloud.com/oauth2/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query inventory positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/MerchServices/MerchRes/v1/inventory",
+            "params": [
+              {
+                "name": "item",
+                "value": "",
+                "type": "query",
+                "description": "Item number"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Store or warehouse number"
+              },
+              {
+                "name": "locationType",
+                "value": "",
+                "type": "query",
+                "description": "Location type (S=Store, W=Warehouse)"
+              }
+            ]
+          },
+          "docs": "Returns stock on hand, on order, and available to sell by item and location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

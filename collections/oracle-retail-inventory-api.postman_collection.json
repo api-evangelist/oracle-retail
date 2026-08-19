@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "0e143682-8aee-42f1-8425-e771839aae58",
+      "name": "Inventory",
+      "description": {
+        "content": "Inventory and stock on hand",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57dbf22b-3d26-4a37-b621-2a9471038cfa",
+          "name": "Query inventory positions",
+          "request": {
+            "name": "Query inventory positions",
+            "description": {
+              "content": "Returns stock on hand, on order, and available to sell by item and location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "inventory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item",
+                  "value": "<string>",
+                  "description": "(Required) Item number"
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "<integer>",
+                  "description": "Store or warehouse number"
+                },
+                {
+                  "disabled": false,
+                  "key": "locationType",
+                  "value": "<string>",
+                  "description": "Location type (S=Store, W=Warehouse)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "643fd464-6133-40d7-a66b-0acd94428565",
+              "name": "Inventory position",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "locationType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"inventoryPositions\": [\n    {\n      \"item\": \"string\",\n      \"location\": 4762,\n      \"locationType\": \"W\",\n      \"stockOnHand\": 6060.25295875978,\n      \"stockOnOrder\": 521.297604597919,\n      \"stockInTransit\": 2646.1558993206067,\n      \"availableToSell\": 2425.876425156026,\n      \"nonSellable\": 4816.361663532566,\n      \"lastUpdateDatetime\": \"2003-04-23T05:01:32.828Z\"\n    },\n    {\n      \"item\": \"string\",\n      \"location\": 8560,\n      \"locationType\": \"W\",\n      \"stockOnHand\": 5150.206344823343,\n      \"stockOnOrder\": 9446.279346742911,\n      \"stockInTransit\": 2047.6843097313313,\n      \"availableToSell\": 2479.8177732698136,\n      \"nonSellable\": 3434.620570354733,\n      \"lastUpdateDatetime\": \"1972-12-28T17:08:04.707Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08d3421c-2277-4a86-8e0d-775c8db8e705",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "locationType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "RMFCS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "retail.example.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f2b6a7d6-6809-46d4-89c9-b9519a7d522e",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+      "type": "text/plain"
+    }
+  }
+}

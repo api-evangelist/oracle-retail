@@ -1,0 +1,949 @@
+{
+  "item": [
+    {
+      "id": "99f282bb-6ede-4604-8101-a4678b6d0bfe",
+      "name": "Orders",
+      "description": {
+        "content": "Customer order management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8aef0e21-63d5-4676-aa8a-351064c5e673",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "Returns customer orders with status, line items, and fulfillment details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by order status"
+                },
+                {
+                  "disabled": false,
+                  "key": "channelId",
+                  "value": "<string>",
+                  "description": "Filter by sales channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<string>",
+                  "description": "Filter by customer ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2656b604-97ce-440e-9eb3-87c41269505a",
+              "name": "Order list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"orderId\": \"string\",\n      \"externalOrderId\": \"string\",\n      \"status\": \"CONFIRMED\",\n      \"channelId\": \"string\",\n      \"customerId\": \"string\",\n      \"orderDate\": \"1956-02-06T06:48:17.740Z\",\n      \"currencyCode\": \"str\",\n      \"subtotal\": 6654.831681814329,\n      \"taxTotal\": 5359.115919082024,\n      \"shippingTotal\": 1424.3920097626483,\n      \"discountTotal\": 9609.015028656539,\n      \"orderTotal\": 9229.252641073073,\n      \"shippingAddress\": {\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"address1\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"str\",\n        \"phone\": \"string\",\n        \"email\": \"v5Gn2p0c@MKPImGYgQvRffpmvC.cg\"\n      },\n      \"createDatetime\": \"2025-09-19T04:03:06.443Z\",\n      \"lastUpdateDatetime\": \"1982-02-20T10:38:44.929Z\"\n    },\n    {\n      \"orderId\": \"string\",\n      \"externalOrderId\": \"string\",\n      \"status\": \"PROCESSING\",\n      \"channelId\": \"string\",\n      \"customerId\": \"string\",\n      \"orderDate\": \"2019-09-12T10:17:41.932Z\",\n      \"currencyCode\": \"str\",\n      \"subtotal\": 7567.475779832585,\n      \"taxTotal\": 8074.734135656625,\n      \"shippingTotal\": 9055.328186764229,\n      \"discountTotal\": 2275.8241570691407,\n      \"orderTotal\": 184.40924052346764,\n      \"shippingAddress\": {\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"address1\": \"string\",\n        \"address2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"str\",\n        \"phone\": \"string\",\n        \"email\": \"Ee1c@V.dhx\"\n      },\n      \"createDatetime\": \"2018-05-24T17:07:08.493Z\",\n      \"lastUpdateDatetime\": \"1981-04-20T05:23:59.715Z\"\n    }\n  ],\n  \"totalCount\": 9580\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cb04dbc-feb5-4c52-9fd8-8e2ef4832bcb",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channelId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f7c3242-e667-46ee-a823-aca5a27aaea2",
+          "name": "Create an order",
+          "request": {
+            "name": "Create an order",
+            "description": {
+              "content": "Creates a new customer order for fulfillment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unitPrice\": \"<double>\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77b6b6f1-c83a-4035-b59b-328d6aff2939",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"string\",\n      \"quantity\": 7445,\n      \"unitPrice\": 3456.0868801750175,\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"string\",\n      \"quantity\": 3997,\n      \"unitPrice\": 3365.6638226864698,\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"XkAai0@RUwQZXXoYIOMosfTl.cair\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"externalOrderId\": \"string\",\n  \"status\": \"PROCESSING\",\n  \"channelId\": \"string\",\n  \"customerId\": \"string\",\n  \"orderDate\": \"1947-02-02T20:57:44.934Z\",\n  \"currencyCode\": \"str\",\n  \"subtotal\": 8939.099921907899,\n  \"taxTotal\": 4942.738260335082,\n  \"shippingTotal\": 5407.745699823055,\n  \"discountTotal\": 5510.973813964153,\n  \"orderTotal\": 8361.015310903178,\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"Foaf@CQXhaQwi.xl\"\n  },\n  \"createDatetime\": \"1988-05-27T07:13:03.834Z\",\n  \"lastUpdateDatetime\": \"1962-07-05T16:14:06.126Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be180a34-0d3a-4c7b-a07a-f02c1288db0f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalOrderId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"lines\": [\n    {\n      \"itemId\": \"string\",\n      \"quantity\": 7445,\n      \"unitPrice\": 3456.0868801750175,\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"itemId\": \"string\",\n      \"quantity\": 3997,\n      \"unitPrice\": 3365.6638226864698,\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    }\n  ],\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"XkAai0@RUwQZXXoYIOMosfTl.cair\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e84c9b0-e744-4471-b94d-abf914d5bc2e",
+          "name": "Get an order",
+          "request": {
+            "name": "Get an order",
+            "description": {
+              "content": "Returns full order details including lines, fulfillment nodes, and payment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order identifier"
+                },
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdb79d96-e02f-439a-9151-0cb3d224ff88",
+              "name": "Order detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier"
+                    },
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"externalOrderId\": \"string\",\n  \"status\": \"CONFIRMED\",\n  \"channelId\": \"string\",\n  \"customerId\": \"string\",\n  \"orderDate\": \"1989-03-07T17:17:03.274Z\",\n  \"currencyCode\": \"str\",\n  \"subtotal\": 5177.233733990286,\n  \"taxTotal\": 110.62000461407484,\n  \"shippingTotal\": 3146.8761822544043,\n  \"discountTotal\": 4845.933440684215,\n  \"orderTotal\": 1791.3909784077186,\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"b6qLWRDnzED@HLuyBsRCvEiVIFOUypFgsoPP.yf\"\n  },\n  \"createDatetime\": \"1951-08-14T11:45:47.473Z\",\n  \"lastUpdateDatetime\": \"2010-09-16T19:47:18.119Z\",\n  \"lines\": [\n    {\n      \"lineId\": \"string\",\n      \"itemId\": \"string\",\n      \"itemDescription\": \"string\",\n      \"quantity\": 87,\n      \"unitPrice\": 1747.0080641604545,\n      \"lineTotal\": 4728.314062839483,\n      \"status\": \"string\",\n      \"fulfillmentType\": \"SHIP_TO_HOME\"\n    },\n    {\n      \"lineId\": \"string\",\n      \"itemId\": \"string\",\n      \"itemDescription\": \"string\",\n      \"quantity\": 7246,\n      \"unitPrice\": 4392.695143632339,\n      \"lineTotal\": 8766.818182844168,\n      \"status\": \"string\",\n      \"fulfillmentType\": \"SHIP_TO_STORE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55dd7fc9-27a8-427c-b463-848732513c3e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier"
+                    },
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65ff8c3b-f611-4ad3-8edd-3068e0a34527",
+          "name": "Update an order",
+          "request": {
+            "name": "Update an order",
+            "description": {
+              "content": "Updates mutable fields on an order such as shipping address or contact info.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order identifier"
+                },
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shippingAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"contactEmail\": \"<email>\",\n  \"contactPhone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e55bfc9-5db8-4382-8f25-317a2f44d9bc",
+              "name": "Order updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier"
+                    },
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"d4p@gjccOTuGSyFiMgMohtCrF.ksb\"\n  },\n  \"contactEmail\": \"<email>\",\n  \"contactPhone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"externalOrderId\": \"string\",\n  \"status\": \"PROCESSING\",\n  \"channelId\": \"string\",\n  \"customerId\": \"string\",\n  \"orderDate\": \"1947-02-02T20:57:44.934Z\",\n  \"currencyCode\": \"str\",\n  \"subtotal\": 8939.099921907899,\n  \"taxTotal\": 4942.738260335082,\n  \"shippingTotal\": 5407.745699823055,\n  \"discountTotal\": 5510.973813964153,\n  \"orderTotal\": 8361.015310903178,\n  \"shippingAddress\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"address1\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"str\",\n    \"phone\": \"string\",\n    \"email\": \"Foaf@CQXhaQwi.xl\"\n  },\n  \"createDatetime\": \"1988-05-27T07:13:03.834Z\",\n  \"lastUpdateDatetime\": \"1962-07-05T16:14:06.126Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24304b56-cb8a-4459-9871-41036fe1cd3e",
+          "name": "Cancel an order",
+          "request": {
+            "name": "Cancel an order",
+            "description": {
+              "content": "Cancels an order or selected line items if order is in a cancellable state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order identifier"
+                },
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c2638f3-e530-4d97-852d-c7cf05d2583f",
+              "name": "Cancellation processed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier"
+                    },
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bd9d89a-f6d5-4561-a40c-c11ba8fda3a2",
+              "name": "Order cannot be cancelled in current state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier"
+                    },
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cancelReason\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "RMFCS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "retail.example.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8e28acaa-33f9-494f-8ad9-2e97a65ef7ab",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+      "type": "text/plain"
+    }
+  }
+}

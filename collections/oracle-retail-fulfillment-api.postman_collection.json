@@ -1,0 +1,228 @@
+{
+  "item": [
+    {
+      "id": "63cb9ab8-a18c-4e1f-a4ef-6486d2c1987d",
+      "name": "Fulfillment",
+      "description": {
+        "content": "Fulfillment and sourcing operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ab5edc5-1b60-40c3-8e6f-5c1755d3a52e",
+          "name": "Record a shipment",
+          "request": {
+            "name": "Record a shipment",
+            "description": {
+              "content": "Records a shipment event for fulfillment nodes, advancing order status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fulfillment",
+                "ship-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "RMFCS hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19f152f2-a909-4639-bffd-01ef62d98298",
+              "name": "Shipment recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "ship-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94d8e848-a990-4e14-aed1-4f2b876e0c0d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "ship-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "RMFCS hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"trackingNumber\": \"<string>\",\n  \"carrier\": \"<string>\",\n  \"lineIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shipDate\": \"<dateTime>\",\n  \"estimatedDeliveryDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "RMFCS hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "retail.example.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/MerchServices/MerchRes/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "retail.read retail.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://identity.oraclecloud.com/oauth2/v1/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "30962dab-bf21-47b4-be95-6f31b12e4250",
+    "name": "Oracle Retail Merchandising Foundation Cloud Service Fulfillment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.\n\nContact Support:\n Name: Oracle Retail Support",
+      "type": "text/plain"
+    }
+  }
+}
