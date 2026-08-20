@@ -31,6 +31,15 @@ tags:
   - Order Management
   - Pricing
   - Inventory
+  - Point-of-Sale
+  - Omnichannel
+  - Oracle
+tags_raw:
+  - Retail
+  - Merchandising
+  - Order Management
+  - Pricing
+  - Inventory
   - Point of Sale
   - Omnichannel
   - Oracle
@@ -70,6 +79,11 @@ apis:
   image: https://www.oracle.com/a/ocom/img/social-og-oracle-cloud.jpg
   humanURL: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
   tags:
+  - Point-of-Sale
+  - REST
+  - Retail
+  - Store Operations
+  tags_raw:
   - Point of Sale
   - REST
   - Retail
@@ -122,6 +136,8 @@ apis:
     https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -141,6 +157,8 @@ apis:
     https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -160,6 +178,8 @@ apis:
     https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
+  - Purchase Orders
+  tags_raw:
   - PurchaseOrders
   properties:
   - type: OpenAPI
