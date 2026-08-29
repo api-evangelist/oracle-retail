@@ -219,6 +219,9 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 common:
+- type: CapabilityMap
+  url: capabilities/oracle-retail-capability-edges.yml
+  name: Oracle Retail Business Capability Map
 - type: ParentCompany
   url: https://apis.io/providers/oracle/
   name: Oracle
