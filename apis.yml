@@ -57,8 +57,9 @@ tags_raw:
 - Oracle
 apis:
 - name: Oracle Retail Pricing Cloud Service API
-  description: Oracle Retail Pricing Cloud Service provides REST APIs for regular price management, promotional
-    pricing, competitive pricing, and clearance pricing across retail operations.
+  description: >-
+    Oracle Retail Pricing Cloud Service provides REST APIs for regular price management, promotional pricing,
+    competitive pricing, and clearance pricing across retail operations.
   image: https://www.oracle.com/a/ocom/img/social-og-oracle-cloud.jpg
   humanURL: https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/
   tags:
@@ -70,7 +71,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/
 - name: Oracle Retail Integration Cloud Service API
-  description: Oracle Retail Integration Cloud Service (RIB and BDI) provides messaging and bulk data integration
+  description: >-
+    Oracle Retail Integration Cloud Service (RIB and BDI) provides messaging and bulk data integration
     APIs connecting Oracle Retail applications to third-party systems using enterprise messaging patterns.
   image: https://www.oracle.com/a/ocom/img/social-og-oracle-cloud.jpg
   humanURL: https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/
@@ -83,8 +85,9 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/
 - name: Oracle Retail Xstore Point of Service API
-  description: Oracle Retail Xstore Point of Service provides APIs for store operations including transactions,
-    inventory lookup, customer management, and omnichannel fulfillment from retail store systems.
+  description: >-
+    Oracle Retail Xstore Point of Service provides APIs for store operations including transactions, inventory
+    lookup, customer management, and omnichannel fulfillment from retail store systems.
   image: https://www.oracle.com/a/ocom/img/social-og-oracle-cloud.jpg
   humanURL: https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/
   tags:
@@ -103,7 +106,8 @@ apis:
 - aid: oracle-retail:oracle-retail-fulfillment-api
   name: Oracle Retail Fulfillment API
   description: Fulfillment and sourcing operations
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Fulfillment
@@ -111,15 +115,18 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-fulfillment-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 - aid: oracle-retail:oracle-retail-inventory-api
   name: Oracle Retail Inventory API
   description: Inventory and stock on hand
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Inventory
@@ -127,15 +134,18 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-inventory-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 - aid: oracle-retail:oracle-retail-items-api
   name: Oracle Retail Items API
   description: Item setup and attributes
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Item
@@ -145,15 +155,18 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-items-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 - aid: oracle-retail:oracle-retail-orders-api
   name: Oracle Retail Orders API
   description: Customer order management
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Order
@@ -163,33 +176,18 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-orders-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
-  - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
-- aid: oracle-retail:oracle-retail-purchaseorders-api
-  name: Oracle Retail PurchaseOrders API
-  description: Purchase order management
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
-  baseURL: https://{host}/MerchServices/MerchRes/v1
-  tags:
-  - Purchase Orders
-  tags_raw:
-  - PurchaseOrders
-  properties:
-  - type: OpenAPI
-    url: openapi/oracle-retail-purchaseorders-api-openapi.yml
-  - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
-  - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 - aid: oracle-retail:oracle-retail-returns-api
   name: Oracle Retail Returns API
   description: Returns and refunds management
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Returns
@@ -197,15 +195,18 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-returns-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 - aid: oracle-retail:oracle-retail-suppliers-api
   name: Oracle Retail Suppliers API
   description: Supplier management
-  humanURL: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  humanURL: >-
+    https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   baseURL: https://{host}/MerchServices/MerchRes/v1
   tags:
   - Suppliers
@@ -213,9 +214,29 @@ apis:
   - type: OpenAPI
     url: openapi/oracle-retail-suppliers-api-openapi.yml
   - type: Documentation
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
   - type: Reference
-    url: https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
+  - type: Documentation
+    url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
+- aid: oracle-retail:oracle-retail-purchase-orders-api
+  name: Oracle Retail Purchase Orders API
+  description: Purchase order management
+  humanURL: https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/
+  baseURL: https://{host}/MerchServices/MerchRes/v1
+  tags:
+  - Purchase Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/oracle-retail-purchase-orders-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/
+  - type: Reference
+    url: >-
+      https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 common:
