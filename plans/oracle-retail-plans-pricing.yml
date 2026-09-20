@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: business-product
 pricing_basis: ad-valorem
+delivery:
+  delivery: managed
+  method: keyword-prefilter
+  read: '2026-09-20'
 published: true
 note: Oracle Industries Pay As You Go price list covering payment cloud services across industries; payment
   rates are percentages of processed payment amount plus per-transaction fees. Many rows (e.g. Communications
