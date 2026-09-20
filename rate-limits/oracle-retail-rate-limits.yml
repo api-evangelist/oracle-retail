@@ -1,83 +1,14 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Oracle Retail
-providerId: oracle-retail
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
-tags:
-  - Retail
-  - Oracle Cloud
-  - Rate Limiting
-  - Omnichannel
-description: >-
-  Oracle Retail Cloud Services REST APIs (Merchandising, Pricing, Integration,
-  Order Management) do not publish per-second or per-minute rate-limit numbers.
-  Throughput is governed by the underlying Retail Cloud pod capacity and by
-  the Retail Integration Cloud Service (RICS) job-throttling configuration
-  for bulk merchandise, inventory, and order events. Customers experiencing
-  throttling are directed to Oracle Retail Support to raise capacity via a
-  service request.
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://docs.oracle.com/en-us/iaas/Content/WAF/RateLimiting/rate_limiting_rule_management.htm
 sources:
-  - https://docs.oracle.com/en/industries/retail/
-  - https://docs.oracle.com/cd/F30053_01/
-notes: >-
-  No public per-tier RPS/RPM numbers are published. Set reconciled to true
-  after capturing tenancy-specific values from an Oracle Retail Support
-  service request response.
-responseCodes:
-  unauthorized: 401
-  forbidden: 403
-  notFound: 404
-  serverError: 500
-  serviceUnavailable: 503
-limits:
-  - name: REST API Throughput
-    scope: tenancy
-    metric: varies
-    limit: bound by Oracle Retail Cloud pod capacity
-    notes: >-
-      Throughput is governed by the underlying Retail Cloud pod and may be
-      raised via an Oracle Retail Support service request.
-  - name: RICS Bulk Job Concurrency
-    scope: tenancy
-    metric: concurrent_jobs
-    limit: see RICS administration guide
-    notes: >-
-      Concurrent bulk synchronization jobs are configured per Retail
-      Integration Cloud Service deployment.
-  - name: Xstore POS Offline Mode
-    scope: lane
-    metric: varies
-    limit: lane-local capacity
-    notes: >-
-      Xstore Point of Service operates store-local and continues offline; in
-      that mode rate limits are bounded by the lane's local hardware rather
-      than by a centrally-published rate.
-policies:
-  - name: Capacity-Bound Throttling
-    description: >-
-      Throughput limits are determined by the Retail Cloud pod and RICS
-      job-throttling settings rather than a published per-tenancy
-      rate-limit table.
-  - name: Backoff Strategy
-    description: >-
-      Clients should implement exponential backoff with jitter on 5xx
-      responses; honor any Retry-After header when present.
-  - name: Bulk Patterns
-    description: >-
-      For high-volume merchandise, inventory, and order synchronization
-      prefer the Retail Integration Cloud Service (RICS) bulk job patterns
-      over hitting transactional REST endpoints.
-  - name: Capacity Adjustment
-    description: >-
-      Sustained high-volume integration requirements should be coordinated
-      through Oracle Retail Support; tenancies on dedicated pods can request
-      capacity increases.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- https://docs.oracle.com/en-us/iaas/Content/WAF/RateLimiting/rate_limiting_rule_management.htm
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: false
+note: Page is an overview of managing WAF rate limiting rules; it states no numeric limits.
+limit_count: 0
+limits: []

@@ -240,6 +240,8 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 common:
+- type: RateLimits
+  url: rate-limits/oracle-retail-rate-limits.yml
 - type: Pricing
   url: https://www.oracle.com/industries/payg-services-price-list/
 - type: Plans
