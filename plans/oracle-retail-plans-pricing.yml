@@ -1,139 +1,66 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Oracle Retail
-providerId: oracle-retail
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
-tags:
-  - Inventory
-  - Merchandising
-  - Omnichannel
-  - Oracle Cloud
-  - Retail
-description: >-
-  Oracle Retail is a suite of cloud and on-premises retail applications,
-  including Merchandising Foundation Cloud Service (MFCS), Retail Pricing
-  Cloud Service, Retail Integration Cloud Service (RICS), Order Management
-  Suite Cloud Service, and Xstore Point of Service. Each application is sold
-  as its own SaaS subscription on the Oracle Retail price list, typically
-  billed against retail-specific metrics such as Annual Subscriber Revenue,
-  Hosted Named User, or POS Lane / Store. There is no free or per-API public
-  tier; the Retail REST APIs are included with the relevant cloud service
-  subscription. Engage Oracle Retail Sales for the application-specific
-  metric and rate.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.oracle.com/industries/payg-services-price-list/
 sources:
-  - https://www.oracle.com/industries/retail/
-  - https://docs.oracle.com/en/industries/retail/
-  - https://www.oracle.com/cloud/price-list/
-notes: >-
-  Oracle blocks programmatic fetches of www.oracle.com pricing pages (HTTP 403).
-  Plan structure preserved as one cloud-services subscription plus an
-  on-premises and an enterprise tier; replace metric units and prices with the
-  verified Oracle Retail price list values when available.
+- https://www.oracle.com/industries/payg-services-price-list/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T124425
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: ad-valorem
+published: true
+note: Oracle Industries Pay As You Go price list covering payment cloud services across industries; payment
+  rates are percentages of processed payment amount plus per-transaction fees. Many rows (e.g. Communications
+  edge devices, Simphony metered tiers) show no price or N/A. Retail section transcribed in full; other
+  industries sampled.
+plan_count: 10
+currency: USD
 plans:
-  - id: oracle-retail-cloud-services
-    name: Oracle Retail Cloud Services Subscription
-    type: subscription
-    description: >-
-      SaaS subscriptions to one or more Oracle Retail Cloud Services
-      (Merchandising Foundation, Pricing, Integration, Order Management).
-      Pricing is per application against retail metrics such as Annual
-      Subscriber Revenue, Hosted Named User, or transaction volume.
-    entries:
-      - label: Annual Subscriber Revenue (Merchandising / Pricing)
-        name: annual_subscriber_revenue
-        type: subscription
-        metric: usd-annual-revenue
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-      - label: Hosted Named User
-        name: hosted_named_user
-        type: subscription
-        metric: user
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-      - label: REST API Calls (included)
-        name: rest_api_calls
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Oracle Retail Merchandising Foundation Cloud Service API
-      - name: Oracle Retail Pricing Cloud Service API
-      - name: Oracle Retail Integration Cloud Service API
-      - name: Oracle Retail Order Management Suite Cloud Service API
-      - name: Oracle Retail Xstore Point of Service API
-  - id: oracle-retail-xstore-pos
-    name: Oracle Retail Xstore Point of Service
-    type: subscription
-    description: >-
-      Oracle Retail Xstore Point of Service, sold per POS Lane or per Store
-      (subscription or perpetual license depending on the deployment shape).
-    entries:
-      - label: Per POS Lane
-        name: pos_lane
-        type: subscription
-        metric: lane
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-      - label: Per Store
-        name: per_store
-        type: subscription
-        metric: store
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: Oracle Retail Xstore Point of Service API
-  - id: oracle-retail-enterprise
-    name: Enterprise Agreement
-    type: enterprise
-    description: >-
-      Negotiated enterprise agreement covering multiple Oracle Retail Cloud
-      Services and Xstore deployments, with contractual SLAs, premier
-      support, and named technical account management.
-    entries:
-      - label: Negotiated Multi-Service Bundle
-        name: negotiated_bundle
-        type: subscription
-        metric: bundle
-        limit: -1
-        timeFrame: year
-        geo: configurable
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Oracle Retail Merchandising Foundation Cloud Service API
-      - name: Oracle Retail Pricing Cloud Service API
-      - name: Oracle Retail Integration Cloud Service API
-      - name: Oracle Retail Order Management Suite Cloud Service API
-      - name: Oracle Retail Xstore Point of Service API
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Oracle Retail Payment Cloud Service, Card Present Rate
+  price_text: 2.5% (0.0250)
+  period: per-use
+  unit: Processed payment amount
+- name: Oracle Retail Payment Cloud Service, Card Not Present Rate
+  price_text: 2.9% (0.0290)
+  period: per-use
+  unit: Processed payment amount
+- name: Oracle Retail Payment Cloud Service, Card Present Transaction Fee
+  price_text: $0.15
+  price: 0.15
+  currency: USD
+  period: per-use
+  unit: Processed payment
+- name: Oracle Retail Payment Cloud Service, Chargeback Fee
+  price_text: $15.00
+  price: 15
+  currency: USD
+  period: per-use
+  unit: Chargeback
+- name: Oracle Retail Payment Cloud Service, American Express Card Present Rate
+  price_text: 3.0% (0.0300)
+  period: per-use
+  unit: Processed payment amount
+- name: Oracle Retail Payment Cloud Service, Card Present P2PE Rate
+  price_text: 2.52% (0.0252)
+  period: per-use
+  unit: Processed Payment Amount
+- name: Oracle Retail Payment Cloud Service, Card Present P2PE Transaction Fee
+  price_text: $0.20
+  price: 0.2
+  currency: USD
+  period: per-use
+  unit: Processed Payment
+- name: Oracle Retail Payment Cloud Service, American Express Card Present P2PE Rate
+  price_text: 3.02% (0.0302)
+  period: per-use
+  unit: Processed Payment Amount
+- name: Oracle Hospitality Payment Cloud Service, Card Present Rate
+  price_text: 3.15% (0.0315)
+  period: per-use
+  unit: Processed payment amount
+- name: Oracle Restaurants Payment Cloud Service, Card Present Rate
+  price_text: 2.45% (0.0245)
+  period: per-use
+  unit: Processed payment amount

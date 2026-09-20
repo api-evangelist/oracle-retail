@@ -240,6 +240,10 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/
 common:
+- type: Pricing
+  url: https://www.oracle.com/industries/payg-services-price-list/
+- type: Plans
+  url: plans/oracle-retail-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/oracle-retail-capability-edges.yml
   name: Oracle Retail Business Capability Map
