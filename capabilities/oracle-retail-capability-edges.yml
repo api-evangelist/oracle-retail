@@ -14,7 +14,8 @@ capability_model:
 edge_count: 3
 edges:
 - tag: PurchaseOrders
-  spec_file: oracle-retail-purchaseorders-api-openapi.yml
+  spec_file: oracle-retail-purchase-orders-api-openapi.yml
+  reanchored_from: oracle-retail-purchaseorders-api-openapi.yml
   capability_id: BC-500.30
   capability_id_l1: BC-500
   capability_name: Purchase Order Management
