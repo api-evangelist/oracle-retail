@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 3
+edge_count: 4
 edges:
 - tag: PurchaseOrders
   spec_file: oracle-retail-purchase-orders-api-openapi.yml
@@ -24,6 +24,17 @@ edges:
     PurchaseOrderLine
   reason: Operations create, list and retrieve merchandise purchase orders against suppliers, which is
     squarely PO creation and execution within procurement.
+- tag: Items
+  spec_file: oracle-retail-items-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.8
+  evidence: '"List items", "Create an item", "Update an item"; description: "managing merchandise hierarchies,
+    item setup"'
+  reason: CRUD on the retail item master within a merchandising foundation system, matching item master
+    data management (attributes, hierarchies, taxonomy).
+  recovered_from: vertical-retail-consumer-goods-edges.json
 - tag: Inventory
   spec_file: oracle-retail-inventory-api-openapi.yml
   capability_id: BC-530
