@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API
+  title: Oracle Retail Merchandising Foundation Cloud Service Items…
   description: Oracle Retail Merchandising Foundation Cloud Service (RMFCS) provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, supplier management, and inventory transactions across omnichannel retail operations.
   version: 26.1.0
   contact:
@@ -149,43 +149,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ItemCreate:
-      type: object
-      required:
-      - item
-      - itemDesc
-      - dept
-      - class
-      - subclass
-      properties:
-        item:
-          type: string
-          maxLength: 25
-        itemDesc:
-          type: string
-          maxLength: 250
-        dept:
-          type: integer
-        class:
-          type: integer
-        subclass:
-          type: integer
-        itemType:
-          type: string
-          enum:
-          - REG
-          - CON
-          - TFM
-          - RB
-          - SB
-          - T
-          default: REG
-        unitRetail:
-          type: number
-          format: double
-        currencyCode:
-          type: string
-          maxLength: 3
     Item:
       type: object
       description: A retail merchandise item
@@ -267,6 +230,54 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
+    ItemCreate:
+      type: object
+      required:
+      - item
+      - itemDesc
+      - dept
+      - class
+      - subclass
+      properties:
+        item:
+          type: string
+          maxLength: 25
+        itemDesc:
+          type: string
+          maxLength: 250
+        dept:
+          type: integer
+        class:
+          type: integer
+        subclass:
+          type: integer
+        itemType:
+          type: string
+          enum:
+          - REG
+          - CON
+          - TFM
+          - RB
+          - SB
+          - T
+          default: REG
+        unitRetail:
+          type: number
+          format: double
+        currencyCode:
+          type: string
+          maxLength: 3
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     ItemUpdate:
       type: object
       properties:
@@ -282,17 +293,6 @@ components:
         unitRetail:
           type: number
           format: double
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
   responses:
     Unauthorized:
       description: Authentication required

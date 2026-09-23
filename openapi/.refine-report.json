@@ -1,26 +1,37 @@
 {
   "provider": "oracle-retail",
   "sources": [
-    "oracle-retail-fulfillment-api-openapi.yml",
-    "oracle-retail-inventory-api-openapi.yml",
-    "oracle-retail-items-api-openapi.yml",
-    "oracle-retail-orders-api-openapi.yml",
-    "oracle-retail-purchaseorders-api-openapi.yml",
-    "oracle-retail-returns-api-openapi.yml",
-    "oracle-retail-suppliers-api-openapi.yml"
+    "_original/oracle-retail-merchandising-openapi.yml",
+    "_original/oracle-retail-order-management-openapi.yml"
   ],
   "outputs": [
-    "oracle-retail-fulfillment-api-openapi.yml",
     "oracle-retail-inventory-api-openapi.yml",
     "oracle-retail-items-api-openapi.yml",
-    "oracle-retail-orders-api-openapi.yml",
     "oracle-retail-purchaseorders-api-openapi.yml",
-    "oracle-retail-returns-api-openapi.yml",
-    "oracle-retail-suppliers-api-openapi.yml"
+    "oracle-retail-suppliers-api-openapi.yml",
+    "oracle-retail-fulfillment-api-openapi.yml",
+    "oracle-retail-orders-api-openapi.yml",
+    "oracle-retail-returns-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "oracle-retail-merchandising-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "oracle-retail-order-management-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: oracle-retail-purchase-orders-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 10 total)"
+  ],
+  "skipped": [
+    "oracle-retail-fulfillment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-purchase-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-returns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "oracle-retail-suppliers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
