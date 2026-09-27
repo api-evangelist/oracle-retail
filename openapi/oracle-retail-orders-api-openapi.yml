@@ -179,33 +179,29 @@ paths:
         '409':
           description: Order cannot be cancelled in current state
 components:
-  responses:
-    Unauthorized:
-      description: Authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
+    OrderLineCreate:
       type: object
+      required:
+      - itemId
+      - quantity
+      - unitPrice
       properties:
-        code:
+        itemId:
           type: string
-        message:
+        quantity:
+          type: integer
+        unitPrice:
+          type: number
+          format: double
+        fulfillmentType:
           type: string
+          enum:
+          - SHIP_TO_HOME
+          - SHIP_TO_STORE
+          - PICKUP_IN_STORE
+          - DELIVERY
+          default: SHIP_TO_HOME
     OrderLine:
       type: object
       properties:
@@ -232,6 +228,13 @@ components:
           - SHIP_TO_STORE
           - PICKUP_IN_STORE
           - DELIVERY
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     Order:
       type: object
       properties:
@@ -284,6 +287,15 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
+    OrderDetail:
+      allOf:
+      - $ref: '#/components/schemas/Order'
+      - type: object
+        properties:
+          lines:
+            type: array
+            items:
+              $ref: '#/components/schemas/OrderLine'
     OrderCreate:
       type: object
       required:
@@ -308,15 +320,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrderLineCreate'
-    OrderDetail:
-      allOf:
-      - $ref: '#/components/schemas/Order'
-      - type: object
-        properties:
-          lines:
-            type: array
-            items:
-              $ref: '#/components/schemas/OrderLine'
     Address:
       type: object
       properties:
@@ -342,28 +345,6 @@ components:
         email:
           type: string
           format: email
-    OrderLineCreate:
-      type: object
-      required:
-      - itemId
-      - quantity
-      - unitPrice
-      properties:
-        itemId:
-          type: string
-        quantity:
-          type: integer
-        unitPrice:
-          type: number
-          format: double
-        fulfillmentType:
-          type: string
-          enum:
-          - SHIP_TO_HOME
-          - SHIP_TO_STORE
-          - PICKUP_IN_STORE
-          - DELIVERY
-          default: SHIP_TO_HOME
     OrderUpdate:
       type: object
       properties:
@@ -374,6 +355,25 @@ components:
           format: email
         contactPhone:
           type: string
+  responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     OrderId:
       name: orderId

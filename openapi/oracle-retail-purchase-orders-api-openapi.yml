@@ -128,71 +128,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    Unauthorized:
-      description: Authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    PurchaseOrderDetail:
-      allOf:
-      - $ref: '#/components/schemas/PurchaseOrder'
-      - type: object
-        properties:
-          lines:
-            type: array
-            items:
-              $ref: '#/components/schemas/PurchaseOrderLine'
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
-    PurchaseOrderCreate:
-      type: object
-      required:
-      - supplier
-      - orderDate
-      - currencyCode
-      properties:
-        supplier:
-          type: integer
-        orderDate:
-          type: string
-          format: date
-        notBeforeDate:
-          type: string
-          format: date
-        notAfterDate:
-          type: string
-          format: date
-        currencyCode:
-          type: string
-          maxLength: 3
-        freightTerms:
-          type: string
-        paymentTerms:
-          type: string
     PurchaseOrderLine:
       type: object
       properties:
@@ -225,6 +161,26 @@ components:
         cancelAfterDate:
           type: string
           format: date
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+    PurchaseOrderDetail:
+      allOf:
+      - $ref: '#/components/schemas/PurchaseOrder'
+      - type: object
+        properties:
+          lines:
+            type: array
+            items:
+              $ref: '#/components/schemas/PurchaseOrderLine'
     PurchaseOrder:
       type: object
       description: A purchase order header
@@ -272,6 +228,50 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
+    PurchaseOrderCreate:
+      type: object
+      required:
+      - supplier
+      - orderDate
+      - currencyCode
+      properties:
+        supplier:
+          type: integer
+        orderDate:
+          type: string
+          format: date
+        notBeforeDate:
+          type: string
+          format: date
+        notAfterDate:
+          type: string
+          format: date
+        currencyCode:
+          type: string
+          maxLength: 3
+        freightTerms:
+          type: string
+        paymentTerms:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2:
       type: oauth2
