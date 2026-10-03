@@ -148,7 +148,61 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ItemParam:
+      name: item
+      in: path
+      required: true
+      description: Item number (up to 25 chars)
+      schema:
+        type: string
+        maxLength: 25
   schemas:
+    ItemUpdate:
+      type: object
+      properties:
+        itemDesc:
+          type: string
+          maxLength: 250
+        status:
+          type: string
+          enum:
+          - A
+          - C
+          - D
+        unitRetail:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     Item:
       type: object
       description: A retail merchandise item
@@ -230,17 +284,6 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
     ItemCreate:
       type: object
       required:
@@ -278,49 +321,6 @@ components:
         currencyCode:
           type: string
           maxLength: 3
-    ItemUpdate:
-      type: object
-      properties:
-        itemDesc:
-          type: string
-          maxLength: 250
-        status:
-          type: string
-          enum:
-          - A
-          - C
-          - D
-        unitRetail:
-          type: number
-          format: double
-  responses:
-    Unauthorized:
-      description: Authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    ItemParam:
-      name: item
-      in: path
-      required: true
-      description: Item number (up to 25 chars)
-      schema:
-        type: string
-        maxLength: 25
   securitySchemes:
     oauth2:
       type: oauth2
