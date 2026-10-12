@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/oracle-retail/integrations
+- https://n8n.io/integrations/oracle-retail/
+- https://composio.dev/toolkits/oracle-retail
+- https://monid.ai/tools/oracle-retail
+checked:
+- https://composio.dev/toolkits/oracle-retail
+- https://monid.ai/tools/oracle-retail
+- https://n8n.io/integrations/oracle-retail/
+- https://zapier.com/apps/oracle-retail/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
