@@ -129,6 +129,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     PurchaseOrderDetail:
       allOf:
       - $ref: '#/components/schemas/PurchaseOrder'
@@ -138,31 +149,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/PurchaseOrderLine'
-    PurchaseOrderCreate:
-      type: object
-      required:
-      - supplier
-      - orderDate
-      - currencyCode
-      properties:
-        supplier:
-          type: integer
-        orderDate:
-          type: string
-          format: date
-        notBeforeDate:
-          type: string
-          format: date
-        notAfterDate:
-          type: string
-          format: date
-        currencyCode:
-          type: string
-          maxLength: 3
-        freightTerms:
-          type: string
-        paymentTerms:
-          type: string
     PurchaseOrderLine:
       type: object
       properties:
@@ -242,17 +228,31 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
-    Error:
+    PurchaseOrderCreate:
       type: object
+      required:
+      - supplier
+      - orderDate
+      - currencyCode
       properties:
-        code:
+        supplier:
+          type: integer
+        orderDate:
           type: string
-        message:
+          format: date
+        notBeforeDate:
           type: string
-        details:
-          type: array
-          items:
-            type: string
+          format: date
+        notAfterDate:
+          type: string
+          format: date
+        currencyCode:
+          type: string
+          maxLength: 3
+        freightTerms:
+          type: string
+        paymentTerms:
+          type: string
   responses:
     BadRequest:
       description: Invalid request

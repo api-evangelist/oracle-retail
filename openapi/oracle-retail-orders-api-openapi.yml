@@ -180,63 +180,6 @@ paths:
           description: Order cannot be cancelled in current state
 components:
   schemas:
-    OrderLineCreate:
-      type: object
-      required:
-      - itemId
-      - quantity
-      - unitPrice
-      properties:
-        itemId:
-          type: string
-        quantity:
-          type: integer
-        unitPrice:
-          type: number
-          format: double
-        fulfillmentType:
-          type: string
-          enum:
-          - SHIP_TO_HOME
-          - SHIP_TO_STORE
-          - PICKUP_IN_STORE
-          - DELIVERY
-          default: SHIP_TO_HOME
-    OrderLine:
-      type: object
-      properties:
-        lineId:
-          type: string
-        itemId:
-          type: string
-        itemDescription:
-          type: string
-        quantity:
-          type: integer
-        unitPrice:
-          type: number
-          format: double
-        lineTotal:
-          type: number
-          format: double
-        status:
-          type: string
-        fulfillmentType:
-          type: string
-          enum:
-          - SHIP_TO_HOME
-          - SHIP_TO_STORE
-          - PICKUP_IN_STORE
-          - DELIVERY
-    OrderDetail:
-      allOf:
-      - $ref: '#/components/schemas/Order'
-      - type: object
-        properties:
-          lines:
-            type: array
-            items:
-              $ref: '#/components/schemas/OrderLine'
     Order:
       type: object
       properties:
@@ -289,30 +232,6 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
-    OrderCreate:
-      type: object
-      required:
-      - externalOrderId
-      - channelId
-      - customerId
-      - currencyCode
-      - lines
-      properties:
-        externalOrderId:
-          type: string
-        channelId:
-          type: string
-        customerId:
-          type: string
-        currencyCode:
-          type: string
-          maxLength: 3
-        shippingAddress:
-          $ref: '#/components/schemas/Address'
-        lines:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderLineCreate'
     Error:
       type: object
       properties:
@@ -355,6 +274,87 @@ components:
           format: email
         contactPhone:
           type: string
+    OrderCreate:
+      type: object
+      required:
+      - externalOrderId
+      - channelId
+      - customerId
+      - currencyCode
+      - lines
+      properties:
+        externalOrderId:
+          type: string
+        channelId:
+          type: string
+        customerId:
+          type: string
+        currencyCode:
+          type: string
+          maxLength: 3
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderLineCreate'
+    OrderDetail:
+      allOf:
+      - $ref: '#/components/schemas/Order'
+      - type: object
+        properties:
+          lines:
+            type: array
+            items:
+              $ref: '#/components/schemas/OrderLine'
+    OrderLine:
+      type: object
+      properties:
+        lineId:
+          type: string
+        itemId:
+          type: string
+        itemDescription:
+          type: string
+        quantity:
+          type: integer
+        unitPrice:
+          type: number
+          format: double
+        lineTotal:
+          type: number
+          format: double
+        status:
+          type: string
+        fulfillmentType:
+          type: string
+          enum:
+          - SHIP_TO_HOME
+          - SHIP_TO_STORE
+          - PICKUP_IN_STORE
+          - DELIVERY
+    OrderLineCreate:
+      type: object
+      required:
+      - itemId
+      - quantity
+      - unitPrice
+      properties:
+        itemId:
+          type: string
+        quantity:
+          type: integer
+        unitPrice:
+          type: number
+          format: double
+        fulfillmentType:
+          type: string
+          enum:
+          - SHIP_TO_HOME
+          - SHIP_TO_STORE
+          - PICKUP_IN_STORE
+          - DELIVERY
+          default: SHIP_TO_HOME
   parameters:
     OrderId:
       name: orderId

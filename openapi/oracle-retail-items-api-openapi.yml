@@ -149,21 +149,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ItemUpdate:
+    Error:
       type: object
       properties:
-        itemDesc:
+        code:
           type: string
-          maxLength: 250
-        status:
+        message:
           type: string
-          enum:
-          - A
-          - C
-          - D
-        unitRetail:
-          type: number
-          format: double
+        details:
+          type: array
+          items:
+            type: string
     Item:
       type: object
       description: A retail merchandise item
@@ -245,6 +241,21 @@ components:
         lastUpdateDatetime:
           type: string
           format: date-time
+    ItemUpdate:
+      type: object
+      properties:
+        itemDesc:
+          type: string
+          maxLength: 250
+        status:
+          type: string
+          enum:
+          - A
+          - C
+          - D
+        unitRetail:
+          type: number
+          format: double
     ItemCreate:
       type: object
       required:
@@ -282,17 +293,6 @@ components:
         currencyCode:
           type: string
           maxLength: 3
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
   responses:
     BadRequest:
       description: Invalid request
