@@ -1,4 +1,4 @@
-# Oracle Retail (oracle-retail)
+# Oracle Retail
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,157 +66,202 @@
 
 Oracle Retail is a suite of cloud and on-premises applications for retailers spanning merchandising, pricing, supply chain, omnichannel order management, point of service, and store operations. Oracle Retail APIs provide REST, messaging, and integration services for managing the full retail lifecycle across digital and physical channels.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/oracle-retail/refs/heads/main/apis.yml)
+**Areas:** Retail · Merchandising · Order Management · Pricing · Inventory · Point-of-Sale · Omnichannel · Oracle
 
-## Scope
+## Oracle Retail on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Oracle Retail is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/oracle-retail/](https://apis.io/providers/oracle-retail/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Retail
-- Merchandising
-- Order Management
-- Pricing
-- Inventory
-- Point of Sale
-- Omnichannel
-- Oracle
+- [Oracle Retail Pricing Cloud Service API](https://apis.io/apis/oracle-retail/oracle-retail-pricing-cloud-service-api/) — Oracle Retail Pricing Cloud Service provides REST APIs for regular price management, promotional pricing, competitive pricing, and clearance pricing across…
+- [Oracle Retail Integration Cloud Service API](https://apis.io/apis/oracle-retail/oracle-retail-integration-cloud-service-api/) — Oracle Retail Integration Cloud Service (RIB and BDI) provides messaging and bulk data integration APIs connecting Oracle Retail applications to third-party…
+- [Oracle Retail Xstore Point of Service API](https://apis.io/apis/oracle-retail/oracle-retail-xstore-point-of-service-api/) — Oracle Retail Xstore Point of Service provides APIs for store operations including transactions, inventory lookup, customer management, and omnichannel…
+- [Oracle Retail Fulfillment API](https://apis.io/apis/oracle-retail/oracle-retail-fulfillment-api/) — Fulfillment and sourcing operations
+- [Oracle Retail Inventory API](https://apis.io/apis/oracle-retail/oracle-retail-inventory-api/) — Inventory and stock on hand
+- [Oracle Retail Items API](https://apis.io/apis/oracle-retail/oracle-retail-items-api/) — Item setup and attributes
+- [Oracle Retail Orders API](https://apis.io/apis/oracle-retail/oracle-retail-orders-api/) — Customer order management
+- [Oracle Retail Returns API](https://apis.io/apis/oracle-retail/oracle-retail-returns-api/) — Returns and refunds management
+- [Oracle Retail Suppliers API](https://apis.io/apis/oracle-retail/oracle-retail-suppliers-api/) — Supplier management
+- [Oracle Retail Purchase Orders API](https://apis.io/apis/oracle-retail/oracle-retail-purchase-orders-api/) — Purchase order management
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Oracle Retail Merchandising Foundation Cloud Service API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Oracle Retail Merchandising Foundation Cloud Service provides REST APIs for managing merchandise hierarchies, item setup, purchase orders, cost management, and inventory transactions across omnichannel retail operations.
+- [Oracle Retail Agentic Access](https://apis.io/agentic-access/oracle-retail/oracle-retail-agentic-access/)
 
-- **Human URL:** [https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/](https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/)
-- **Base URL:** `https://{host}/MerchServices/MerchRes/v1`
+#### JSON Schema (20)
 
-#### Tags
+The data models the API reads and writes.
 
-- Inventory
-- Merchandising
-- REST
-- Retail
+- [Address](https://apis.io/schemas/oracle-retail/oracle-retail-address/)
+- [Error](https://apis.io/schemas/oracle-retail/oracle-retail-error/)
+- [InventoryPosition](https://apis.io/schemas/oracle-retail/oracle-retail-inventoryposition/)
+- [Oracle Retail Item](https://apis.io/schemas/oracle-retail/oracle-retail-item/)
+- [ItemCreate](https://apis.io/schemas/oracle-retail/oracle-retail-itemcreate/)
+- [ItemUpdate](https://apis.io/schemas/oracle-retail/oracle-retail-itemupdate/)
+- [Oracle Retail Order](https://apis.io/schemas/oracle-retail/oracle-retail-order/)
+- [OrderCreate](https://apis.io/schemas/oracle-retail/oracle-retail-ordercreate/)
+- [OrderDetail](https://apis.io/schemas/oracle-retail/oracle-retail-orderdetail/)
+- [OrderLine](https://apis.io/schemas/oracle-retail/oracle-retail-orderline/)
+- [OrderLineCreate](https://apis.io/schemas/oracle-retail/oracle-retail-orderlinecreate/)
+- [OrderUpdate](https://apis.io/schemas/oracle-retail/oracle-retail-orderupdate/)
+- [PurchaseOrder](https://apis.io/schemas/oracle-retail/oracle-retail-purchaseorder/)
+- [PurchaseOrderCreate](https://apis.io/schemas/oracle-retail/oracle-retail-purchaseordercreate/)
+- [PurchaseOrderDetail](https://apis.io/schemas/oracle-retail/oracle-retail-purchaseorderdetail/)
+- [PurchaseOrderLine](https://apis.io/schemas/oracle-retail/oracle-retail-purchaseorderline/)
+- [Return](https://apis.io/schemas/oracle-retail/oracle-retail-return/)
+- [ReturnCreate](https://apis.io/schemas/oracle-retail/oracle-retail-returncreate/)
+- [ShipmentRequest](https://apis.io/schemas/oracle-retail/oracle-retail-shipmentrequest/)
+- [Supplier](https://apis.io/schemas/oracle-retail/oracle-retail-supplier/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/)
-- [Reference](https://docs.oracle.com/en/industries/retail/retail-merchandising-foundation-cloud/latest/rmwrg/)
-- [OpenAPI](openapi/oracle-retail-merchandising-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/oracle-retail-merchandising.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-merchandising.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### Oracle Retail Pricing Cloud Service API
+- [Oracle Retail Structure](https://apis.io/json-structure/oracle-retail/oracle-retail-structure/)
 
-Oracle Retail Pricing Cloud Service provides REST APIs for regular price management, promotional pricing, competitive pricing, and clearance pricing across retail operations.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/](https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Oracle Retail Context](https://apis.io/jsonld/oracle-retail/oracle-retail-context/)
 
-- Pricing
-- Promotions
-- REST
-- Retail
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.oracle.com/en/industries/retail/retail-pricing-cloud/latest/)
-- [Postman Collection](collections/oracle-retail-merchandising.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-merchandising.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/oracle-retail-order-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-order-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Oracle Retail Domain Vocabulary](https://apis.io/vocabularies/oracle-retail/oracle-retail-vocabulary/)
 
-### Oracle Retail Integration Cloud Service API
+#### Collections (16)
 
-Oracle Retail Integration Cloud Service (RIB and BDI) provides messaging and bulk data integration APIs connecting Oracle Retail applications to third-party systems using enterprise messaging patterns.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/](https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment API](https://apis.io/collections/oracle-retail/open-oracle-retail-fulfillment-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API](https://apis.io/collections/oracle-retail/open-oracle-retail-inventory-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API](https://apis.io/collections/oracle-retail/open-oracle-retail-items-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service API](https://apis.io/collections/oracle-retail/open-oracle-retail-merchandising/)
+- [Oracle Retail Order Management Suite Cloud Service API](https://apis.io/collections/oracle-retail/open-oracle-retail-order-management/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Orders API](https://apis.io/collections/oracle-retail/open-oracle-retail-orders-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment PurchaseOrders API](https://apis.io/collections/oracle-retail/open-oracle-retail-purchaseorders-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Returns API](https://apis.io/collections/oracle-retail/open-oracle-retail-returns-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Suppliers API](https://apis.io/collections/oracle-retail/open-oracle-retail-suppliers-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment API](https://apis.io/collections/oracle-retail/postman-oracle-retail-fulfillment-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Inventory API](https://apis.io/collections/oracle-retail/postman-oracle-retail-inventory-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Items API](https://apis.io/collections/oracle-retail/postman-oracle-retail-items-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Orders API](https://apis.io/collections/oracle-retail/postman-oracle-retail-orders-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment PurchaseOrders API](https://apis.io/collections/oracle-retail/postman-oracle-retail-purchaseorders-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Returns API](https://apis.io/collections/oracle-retail/postman-oracle-retail-returns-api/)
+- [Oracle Retail Merchandising Foundation Cloud Service Fulfillment Suppliers API](https://apis.io/collections/oracle-retail/postman-oracle-retail-suppliers-api/)
 
-#### Tags
+#### Governance rules (1)
 
-- Integration
-- Middleware
-- REST
-- Retail
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Oracle Retail — jsonschema rules](https://apis.io/rules/oracle-retail/oracle-retail-jsonschema-spectral-rules/)
 
-- [Documentation](https://docs.oracle.com/en/industries/retail/retail-integration-cloud/latest/)
-- [Postman Collection](collections/oracle-retail-merchandising.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-merchandising.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/oracle-retail-order-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-order-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (2)
 
-### Oracle Retail Order Management Suite Cloud Service API
+Authentication, trust centre, and vulnerability disclosure.
 
-Oracle Retail Order Management Suite Cloud Service provides REST APIs for omnichannel order orchestration, fulfillment, sourcing, and customer service across digital and physical retail channels.
+- [Oracle Retail Authentication](https://apis.io/security/oracle-retail/oracle-retail-authentication/)
+- [Oracle Retail Domain Security](https://apis.io/security/oracle-retail/oracle-retail-domain-security/)
 
-- **Human URL:** [https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/](https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/)
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Omnichannel
-- Order Management
-- REST
-- Retail
+- [Oracle Retail Scopes](https://apis.io/scopes/oracle-retail/oracle-retail-scopes/)
 
-#### Properties
+#### Plans and pricing (2)
 
-- [Documentation](https://docs.oracle.com/en/industries/retail/retail-oms-suite-cloud/26.1.101.0/)
-- [OpenAPI](openapi/oracle-retail-order-management-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/oracle-retail-order-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-order-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Oracle Retail Xstore Point of Service API
+- [Oracle Retail Plans Pricing](https://apis.io/plans/oracle-retail/oracle-retail-plans-pricing/)
+- [Oracle Retail Price Estimates](https://apis.io/plans/oracle-retail/oracle-retail-price-estimates/)
 
-Oracle Retail Xstore Point of Service provides APIs for store operations including transactions, inventory lookup, customer management, and omnichannel fulfillment from retail store systems.
+#### Rate limits (1)
 
-- **Human URL:** [https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/](https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/)
+Published request limits.
 
-#### Tags
+- [Oracle Retail Rate Limits](https://apis.io/rate-limits/oracle-retail/oracle-retail-rate-limits/)
 
-- Point of Sale
-- REST
-- Retail
-- Store Operations
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.oracle.com/en/industries/retail/retail-xstore-point-of-service/25.0/)
-- [Postman Collection](collections/oracle-retail-merchandising.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-merchandising.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/oracle-retail-order-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/oracle-retail-order-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Oracle Retail Finops](https://apis.io/finops/oracle-retail/oracle-retail-finops/)
 
-## Common Properties
+## Where to find this API
 
-- [LinkedIn](https://www.linkedin.com/showcase/oracle-retail)
-- [Portal](https://docs.oracle.com/en/industries/retail/)
-- [Documentation](https://docs.oracle.com/en/industries/retail/)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.oracle.com/retail/)
+- [Documentation](https://docs.oracle.com/en/industries/retail/)
+- [Pricing](https://www.oracle.com/industries/payg-services-price-list/)
 - [Support](https://community.oracle.com/gbu/rgbu/)
 - [Blog](https://blogs.oracle.com/retail/)
-- [Privacy Policy](https://www.oracle.com/legal/privacy/privacy-policy/)
-- [Terms of Service](https://www.oracle.com/legal/terms/)
-- [GitHub Organization](https://github.com/oracle)
-- [Developer  Portal](https://www.oracle.com/developer/)
-- [Status Page](https://ocistatus.oraclecloud.com/)
-- [OpenAPI](openapi/oracle-retail-merchandising-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](openapi/oracle-retail-order-management-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [J S O N  Schema](json-schema/oracle-retail-item-schema.json)
-- [J S O N  Schema](json-schema/oracle-retail-order-schema.json)
-- [J S O N- L D  Context](json-ld/oracle-retail-context.jsonld)
+- [Terms of service](https://www.oracle.com/legal/terms/)
+- [Privacy policy](https://www.oracle.com/legal/privacy/privacy-policy/)
+- [GitHub](https://github.com/oracle)
+- [Status](https://ocistatus.oraclecloud.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 46.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 54.3 |
+| Contract governance | 9.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 44.0 |
+| Access clarity | 63.2 |
+
+**Agent readiness 28.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/oracle-retail/](https://apis.io/providers/oracle-retail/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Oracle Retail: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/oracle-retail/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
